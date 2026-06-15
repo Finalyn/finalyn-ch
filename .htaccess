@@ -1,0 +1,27 @@
+# ===================================================================
+# finalyn.ch — hub studio (statique + PHP pour /ia/api)
+# ===================================================================
+RewriteEngine On
+
+# --- 1) Forcer HTTPS ---
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# --- 2) (optionnel) www -> non-www : décommenter si tu utilises www.finalyn.ch
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# --- 3) Redirections 301 des anciennes URLs (ex-site React) ---
+#     Préserve le SEO des pages déjà indexées et évite les 404.
+
+# Ancienne page service IA -> nouvelle agence finalyn.ch/ia (en ligne)
+RewriteRule ^services/automatisation/?$ /ia/ [R=301,L]
+
+# Anciennes pages services / projets (plus de page dédiée pour l'instant) -> accueil
+RewriteRule ^(services|projets)(/.*)?$ / [R=301,L]
+
+# Anciens parcours devis / audit / pages légales -> accueil
+RewriteRule ^(devis|demande-audit|mentions-legales|conditions-utilisation)/?$ / [R=301,L]
+
+# Ancien admin React -> accueil (l'admin du pôle IA est sur /ia/admin)
+RewriteRule ^admin/?$ / [R=301,L]
