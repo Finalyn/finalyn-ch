@@ -3,6 +3,12 @@
 # ===================================================================
 RewriteEngine On
 
+# --- 0) Ancien sous-domaine ia.finalyn.ch -> finalyn.ch/ia (301, chemins conservés) ---
+#     ia.finalyn.ch/blog/x -> finalyn.ch/ia/blog/x , etc.
+#     (ne fonctionne que si ia.finalyn.ch pointe encore vers CET hébergement)
+RewriteCond %{HTTP_HOST} ^(www\.)?ia\.finalyn\.ch$ [NC]
+RewriteRule ^(.*)$ https://finalyn.ch/ia/$1 [R=301,L]
+
 # --- 1) Forcer HTTPS ---
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
