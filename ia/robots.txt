@@ -1,0 +1,42 @@
+# robots.txt, finalyn.ia
+# Agence d'automatisation IA sur mesure, Rolle (Vaud), Suisse
+
+User-agent: *
+Allow: /
+
+# Le back-office n'a pas besoin d'etre indexe
+Disallow: /admin/
+Disallow: /api/
+
+# Bots de moteurs de recherche IA (GEO), autorisation explicite
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://finalyn.ch/ia/sitemap.xml
+
+# Index cure pour les LLMs (format https://llmstxt.org/)
+# https://finalyn.ch/ia/llms.txt

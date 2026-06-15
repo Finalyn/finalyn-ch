@@ -1,0 +1,31 @@
+# robots.txt — Finalyn (finalyn.ch)
+# Studio suisse d'innovation & de commercialisation · pôle IA : finalyn.ch/ia
+
+User-agent: *
+Allow: /
+# Back-office et API du pôle IA : pas d'indexation
+Disallow: /ia/admin/
+Disallow: /ia/api/
+
+# Bots des moteurs IA (GEO) — autorisation explicite
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://finalyn.ch/sitemap.xml
+Sitemap: https://finalyn.ch/ia/sitemap.xml

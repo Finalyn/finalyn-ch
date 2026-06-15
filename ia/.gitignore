@@ -1,0 +1,12 @@
+# Secrets, base de donnees et cache (ne jamais committer)
+api/config.php
+api/.cache/
+api/.data/
+
+# Lanceur local (chemin PHP specifique a la machine)
+start-local.bat
+
+# Systeme
+.DS_Store
+Thumbs.db
+email-preview.html

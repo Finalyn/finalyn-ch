@@ -1,0 +1,322 @@
+<!--
+  ===========================================================================
+  SECTION : MÉMOIRE (organigramme façon Obsidian)
+  Mise de côté le 2026-05-26, à réinjecter quand on est prêt.
+  Comprend : (1) HTML de la section, (2) CSS à coller dans le <style> inline
+  de index.html, (3) JS à coller près des autres petits scripts.
+  ===========================================================================
+-->
+
+
+<!-- ============== 1. HTML ============== -->
+<!-- À insérer entre <section class="trust"> et <section class="ai-ask"> -->
+
+<section class="memory" id="memoire" aria-labelledby="memory-title">
+ <div class="memory-container">
+  <header class="memory-head">
+    <span class="memory-eyebrow">La mémoire</span>
+    <h2 id="memory-title">Une mémoire qui <span class="accent-lilac">n'oublie rien</span>.</h2>
+    <p class="memory-sub">Un agent IA sans mémoire est juste un chatbot. Le nôtre se souvient de vos clients, de vos documents et de vos règles métier, comme un collaborateur après six mois en poste.</p>
+  </header>
+
+  <div class="memory-graph" aria-hidden="true">
+    <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+      <!-- Liaisons centre <-> noeuds -->
+      <line x1="300" y1="190" x2="300" y2="78"  class="mem-edge"/>
+      <line x1="300" y1="190" x2="490" y2="190" class="mem-edge"/>
+      <line x1="300" y1="190" x2="300" y2="302" class="mem-edge"/>
+      <line x1="300" y1="190" x2="110" y2="190" class="mem-edge"/>
+      <!-- Liaisons croisees (richesse du graphe) -->
+      <line x1="300" y1="78"  x2="490" y2="190" class="mem-edge mem-edge-thin"/>
+      <line x1="490" y1="190" x2="300" y2="302" class="mem-edge mem-edge-thin"/>
+      <line x1="300" y1="302" x2="110" y2="190" class="mem-edge mem-edge-thin"/>
+      <line x1="110" y1="190" x2="300" y2="78"  class="mem-edge mem-edge-thin"/>
+      <!-- Petits noeuds satellites (decor) -->
+      <line x1="300" y1="78"  x2="420" y2="40"  class="mem-edge mem-edge-thin"/>
+      <line x1="490" y1="190" x2="560" y2="120" class="mem-edge mem-edge-thin"/>
+      <line x1="300" y1="302" x2="180" y2="350" class="mem-edge mem-edge-thin"/>
+      <line x1="110" y1="190" x2="40"  y2="260" class="mem-edge mem-edge-thin"/>
+
+      <!-- Noeuds satellites -->
+      <circle cx="420" cy="40"  r="6" class="mem-node mem-node-sat"/>
+      <circle cx="560" cy="120" r="6" class="mem-node mem-node-sat"/>
+      <circle cx="180" cy="350" r="6" class="mem-node mem-node-sat"/>
+      <circle cx="40"  cy="260" r="6" class="mem-node mem-node-sat"/>
+
+      <!-- 4 noeuds principaux -->
+      <circle cx="300" cy="78"  r="26" class="mem-node" data-mem="1" tabindex="0" role="button" aria-label="Mémoire courte"/>
+      <circle cx="490" cy="190" r="26" class="mem-node" data-mem="2" tabindex="0" role="button" aria-label="Mémoire documentaire"/>
+      <circle cx="300" cy="302" r="26" class="mem-node" data-mem="3" tabindex="0" role="button" aria-label="Mémoire factuelle"/>
+      <circle cx="110" cy="190" r="26" class="mem-node" data-mem="4" tabindex="0" role="button" aria-label="Mémoire métier"/>
+
+      <!-- Centre : agent IA -->
+      <circle cx="300" cy="190" r="44" class="mem-node mem-node-center"/>
+
+      <!-- Labels -->
+      <text x="300" y="55"  class="mem-label">Conversation</text>
+      <text x="490" y="160" class="mem-label">Documents</text>
+      <text x="300" y="338" class="mem-label">CRM &amp; clients</text>
+      <text x="110" y="160" class="mem-label">Règles métier</text>
+      <text x="300" y="196" class="mem-label-center">Agent IA</text>
+    </svg>
+  </div>
+
+  <div class="memory-cards" id="memoryCards">
+    <article class="memory-card" data-mem="1">
+      <span class="memory-card-num">1</span>
+      <h3>Mémoire courte</h3>
+      <p>Tout ce qui se dit dans la conversation en cours, sans rien perdre en route. L'agent suit le fil sur des dizaines d'échanges.</p>
+    </article>
+    <article class="memory-card" data-mem="2">
+      <span class="memory-card-num">2</span>
+      <h3>Mémoire documentaire</h3>
+      <p>Contrats, devis, manuels, FAQ internes. L'agent les retrouve en 0,3 seconde et cite ses sources, sans envoyer vos PDF chez OpenAI.</p>
+    </article>
+    <article class="memory-card" data-mem="3">
+      <span class="memory-card-num">3</span>
+      <h3>Mémoire factuelle</h3>
+      <p>Connexion à votre CRM, ERP, bexio, calendriers. L'agent connaît votre client X avant même qu'il vous appelle.</p>
+    </article>
+    <article class="memory-card" data-mem="4">
+      <span class="memory-card-num">4</span>
+      <h3>Mémoire métier</h3>
+      <p>Vos règles, votre ton, vos limites. L'agent les applique à chaque interaction, sans avoir besoin de les rappeler.</p>
+    </article>
+  </div>
+ </div>
+</section>
+
+
+<!-- ============== 2. CSS ============== -->
+<!-- À coller dans le <style> inline de index.html, avant la section AI ASK -->
+
+<style>
+  /* ===== SECTION : MÉMOIRE (organigramme façon Obsidian) ===== */
+  .memory {
+    position: relative;
+    z-index: 2;
+    background: var(--warm-white);
+    padding: 5.5rem 0 5rem;
+    border-top: 1px solid var(--line);
+  }
+  .memory-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+  .memory-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+  }
+  .memory-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.85rem;
+  }
+  .memory-head h2 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 0.85rem;
+  }
+  .memory-head h2 .accent-lilac {
+    background: linear-gradient(92deg, #B9A3FB 0%, #8B5CF6 60%, #7C4DEF 100%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    font-weight: 400;
+  }
+  .memory-sub {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Graphe SVG */
+  .memory-graph {
+    max-width: 620px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+  }
+  .memory-graph svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .mem-edge {
+    stroke: rgba(139, 92, 246, 0.35);
+    stroke-width: 1.4;
+    fill: none;
+  }
+  .mem-edge-thin {
+    stroke: rgba(167, 139, 250, 0.18);
+    stroke-width: 1;
+  }
+  .mem-node {
+    fill: #fff;
+    stroke: rgba(139, 92, 246, 0.5);
+    stroke-width: 1.6;
+    filter: drop-shadow(0 4px 12px rgba(40, 30, 60, 0.08));
+    transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease;
+    transform-origin: center;
+    transform-box: fill-box;
+    cursor: pointer;
+    outline: none;
+  }
+  .mem-node[data-mem]:hover,
+  .mem-node[data-mem]:focus,
+  .mem-node.is-active {
+    fill: rgba(167, 139, 250, 0.18);
+    stroke: var(--purple);
+    stroke-width: 2.5;
+    transform: scale(1.12);
+  }
+  .mem-node-sat {
+    fill: var(--lilac);
+    stroke: none;
+    opacity: 0.5;
+  }
+  .mem-node-center {
+    fill: #8B5CF6;
+    stroke: rgba(167, 139, 250, 0.4);
+    stroke-width: 8;
+    filter: drop-shadow(0 8px 24px rgba(139, 92, 246, 0.45));
+    animation: memPulse 3s ease-in-out infinite;
+  }
+  @keyframes memPulse {
+    0%, 100% { stroke-width: 8; }
+    50% { stroke-width: 14; }
+  }
+  .mem-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    fill: var(--ink-soft);
+    text-anchor: middle;
+    letter-spacing: -0.01em;
+  }
+  .mem-label-center {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    fill: #fff;
+    text-anchor: middle;
+    letter-spacing: -0.01em;
+  }
+
+  /* Cartes explicatives */
+  .memory-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .memory-card {
+    position: relative;
+    padding: 1.5rem 1.4rem 1.4rem;
+    background: rgba(255, 253, 250, 0.82);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+  .memory-card:hover,
+  .memory-card.is-active {
+    border-color: var(--purple);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -22px rgba(139, 92, 246, 0.35);
+    background: #fff;
+  }
+  .memory-card.is-active .memory-card-num {
+    background: var(--purple);
+    color: #fff;
+  }
+  .memory-card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: rgba(167, 139, 250, 0.12);
+    color: var(--purple);
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+  }
+  .memory-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+  .memory-card p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  @media (max-width: 960px) {
+    .memory-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .memory { padding: 4rem 0 3.5rem; }
+    .memory-container { padding: 0 1.5rem; }
+    .memory-head { margin-bottom: 1.75rem; }
+    .memory-graph { margin-bottom: 2.25rem; max-width: 460px; }
+  }
+  @media (max-width: 540px) {
+    .memory-cards { grid-template-columns: 1fr; gap: 0.85rem; }
+    .memory-card { padding: 1.25rem 1.2rem; }
+  }
+</style>
+
+
+<!-- ============== 3. JS ============== -->
+<!-- À coller dans le <script> en bas d'index.html (avec les autres IIFE) -->
+
+<script>
+  // Memory section : sync hover/focus between graph nodes and cards
+  (function () {
+    var nodes = document.querySelectorAll('.mem-node[data-mem]');
+    var cards = document.querySelectorAll('.memory-card[data-mem]');
+    if (!nodes.length || !cards.length) return;
+    function setActive(id, on) {
+      nodes.forEach(function (n) {
+        n.classList.toggle('is-active', on && n.getAttribute('data-mem') === id);
+      });
+      cards.forEach(function (c) {
+        c.classList.toggle('is-active', on && c.getAttribute('data-mem') === id);
+      });
+    }
+    function bind(el) {
+      var id = el.getAttribute('data-mem');
+      el.addEventListener('mouseenter', function () { setActive(id, true); });
+      el.addEventListener('mouseleave', function () { setActive(id, false); });
+      el.addEventListener('focus',      function () { setActive(id, true); });
+      el.addEventListener('blur',       function () { setActive(id, false); });
+    }
+    nodes.forEach(bind);
+    cards.forEach(bind);
+  })();
+</script>
+
+
+<!-- ============== 4. SEO/AEO complémentaire (optionnel à réinjecter) ============== -->
+<!--
+  a) sitemap.xml : ajouter
+     <url><loc>https://finalyn.ch/ia/#memoire</loc><lastmod>YYYY-MM-DD</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  b) JSON-LD SiteNavigationElement dans index.html : insérer
+     {"@type": "ListItem", "position": 8, "name": "Mémoire", "item": "https://finalyn.ch/ia/#memoire"}
+     (puis renuméroter Avis IA → 9, Blog → 10, FAQ → 11)
+
+  c) llms.txt : insérer la section "## Mémoire des agents IA" décrivant les 4 couches
+-->

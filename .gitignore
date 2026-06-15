@@ -1,0 +1,5 @@
+# Secrets & données runtime du pôle IA (ne jamais committer)
+ia/api/config.php
+ia/api/.data/
+ia/api/.cache/
+**/.DS_Store

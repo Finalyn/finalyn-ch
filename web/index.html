@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>finalyn.web · Bientôt disponible — Finalyn</title>
+<meta name="description" content="finalyn.web, le pôle web & applications du studio Finalyn, arrive bientôt. Sites vitrine, e-commerce et applications sur mesure en Suisse romande." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://finalyn.ch/web/" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<meta name="theme-color" content="#0EA5E9" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#f8fafc;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--brand:#0284c7;--ia:#7c3aed;}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg)}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+.cs{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.cs__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;z-index:0}
+.cs__veil{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 78% 82% at 50% 50%,rgba(248,250,252,.88) 0%,rgba(248,250,252,.62) 58%,rgba(248,250,252,.42) 100%)}
+.cs__inner{position:relative;z-index:2;padding:40px clamp(20px,5vw,56px);max-width:640px}
+.cs__mark{font-weight:400;font-size:clamp(2.6rem,6vw,4.4rem);letter-spacing:-.03em;line-height:1;margin-bottom:22px}
+.cs__mark .web{color:var(--brand)}
+.badge{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);background:rgba(2,132,199,.1);border:1px solid rgba(2,132,199,.2);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.cs__text{font-size:1.1rem;color:var(--muted);margin:0 auto 30px;max-width:42ch}
+.cs__cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;padding:13px 26px;border-radius:999px;border:1px solid transparent;text-decoration:none;color:inherit;transition:transform .25s,background .25s,border-color .25s}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:var(--brand);transform:translateY(-2px)}
+.btn-soft{background:#fff;color:var(--ink);border-color:var(--line)}.btn-soft:hover{border-color:var(--brand);transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<section class="cs">
+  <img class="cs__img" src="/assets/hero-finalyn.webp" alt="" fetchpriority="high" />
+  <div class="cs__veil" aria-hidden="true"></div>
+  <div class="cs__inner">
+    <div class="cs__mark">finalyn<span class="web">.web</span></div>
+    <span class="badge">Bientôt disponible</span>
+    <p class="cs__text">Le pôle web &amp; applications de Finalyn arrive très bientôt. En attendant, parlons de votre projet.</p>
+    <div class="cs__cta">
+      <a href="/" class="btn btn-primary">Retour à Finalyn</a>
+      <a href="mailto:contact@finalyn.ch?subject=Projet%20web" class="btn btn-soft">Nous contacter</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

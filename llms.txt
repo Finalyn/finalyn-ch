@@ -1,0 +1,42 @@
+# Finalyn — Studio digital suisse
+
+> Finalyn est un studio digital suisse basé à Rolle (canton de Vaud, Suisse). Il réunit plusieurs expertises complémentaires sous une même marque : web et applications, intelligence artificielle, marketing digital et automatisation. Finalyn accompagne les PME, indépendants, startups et associations de Suisse romande et de la francophonie, de l'idée jusqu'au produit livré. Finalyn est à la fois une agence (services sur mesure pour ses clients) et un studio (qui crée et commercialise ses propres produits).
+
+## À propos
+
+- **Nom** : Finalyn (studio)
+- **Localisation** : Rolle, Vaud, Suisse
+- **Zone d'intervention** : toute la Suisse romande (Vaud, Genève, Fribourg, Neuchâtel, Valais), en remote pour la francophonie
+- **Contact** : contact@finalyn.ch · +41 79 639 36 84
+- **Site** : https://finalyn.ch/
+- **LinkedIn** : https://www.linkedin.com/company/finalyn
+- **Instagram** : https://www.instagram.com/finalyn.ch/
+
+## Les expertises du studio
+
+- **Intelligence artificielle — finalyn.ia** : c'est l'agence d'intelligence artificielle de Finalyn, une marque distincte accessible sur https://finalyn.ch/ia. Elle déploie des agents IA, automatise les processus avec n8n et conseille les entreprises sur l'IA. À ne pas confondre avec Finalyn (le studio) : finalyn.ia en est le pôle dédié à l'IA.
+- **Web & applications** : sites vitrine, e-commerce et applications SaaS sur mesure.
+- **Marketing digital** : SEO, GEO, contenu, acquisition et image de marque.
+- **Automatisation** : outils internes, intégrations entre logiciels et automatisation des processus.
+- **Branding & design** : identité visuelle, logo et design d'interface.
+- **Stratégie & produit** : cadrage, monétisation et roadmap.
+
+## Distinction des marques
+
+- **Finalyn** = le studio (l'ombrelle) qui réunit les expertises. Site : https://finalyn.ch/
+- **finalyn.ia** = l'agence IA du studio, marque distincte. Site : https://finalyn.ch/ia/
+
+## Réalisations récentes
+
+- **MAX2C4D** (2026) — Plugin de conversion 3ds Max → Cinema 4D + site vitrine
+- **Pulci2** (2026) — Refonte vitrine restaurant italien à Rolle, multilingue FR/EN/IT
+- **Arkia** (2025) — Plateforme SaaS d'IA générative pour l'architecture
+- **BFC APP** (2026) — Application métier PWA pour digitaliser un processus de commande
+- **TownProject** (2026) — Site vitrine entreprise suisse de construction
+- **Brandify** (2025) — App web pour ajouter logo / filigrane sur images
+- **CityGuess** (2025) — Jeu de géographie multijoueur
+- **Purcheez** (2025) — Plateforme de paiement en escrow pour freelances
+
+## Contact
+
+Écrivez en une ligne votre besoin à contact@finalyn.ch : nous vous orientons vers le bon pôle du studio et revenons vers vous sous 24 h.

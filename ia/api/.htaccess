@@ -1,0 +1,10 @@
+# Protege les fichiers sensibles du dossier api/.
+# chat.php reste accessible ; le reste (clef, cache) est bloque.
+
+<FilesMatch "^(config\.php|config\.example\.php)$">
+  Require all denied
+</FilesMatch>
+
+# Bloque l'acces direct au cache (rate-limit) et a la base de donnees
+RedirectMatch 404 ^/api/\.cache/.*$
+RedirectMatch 404 ^/api/\.data/.*$

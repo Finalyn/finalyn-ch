@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mistral en local pour PME suisse · nLPD / RGPD · finalyn.ia</title>
+<meta name="description" content="Comment déployer Mistral ou un modèle open-source en local chez une PME suisse pour garantir conformité nLPD/RGPD. Hardware nécessaire, setup avec Ollama, cas d'usage et limites concrètes." />
+<meta name="author" content="finalyn.ia" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<link rel="canonical" href="https://finalyn.ch/ia/blog/mistral-local-pme-suisse-rgpd.html" />
+
+<meta name="geo.region" content="CH-VD" />
+<meta name="geo.placename" content="Rolle, Suisse" />
+<meta name="geo.position" content="46.4593;6.3380" />
+
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_CH" />
+<meta property="og:site_name" content="finalyn.ia" />
+<meta property="og:title" content="Mistral en local pour PME suisse · nLPD / RGPD · finalyn.ia" />
+<meta property="og:description" content="Comment déployer Mistral ou un modèle open-source en local chez une PME suisse pour garantir conformité nLPD/RGPD. Hardware nécessaire, setup avec Ollama, cas d'usage et limites concrètes." />
+<meta property="og:url" content="https://finalyn.ch/ia/blog/mistral-local-pme-suisse-rgpd.html" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80" />
+<meta property="article:published_time" content="2026-05-19T09:00:00+02:00" />
+<meta property="article:section" content="Technique" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mistral en local pour PME suisse · nLPD / RGPD · finalyn.ia" />
+<meta name="twitter:description" content="Comment déployer Mistral ou un modèle open-source en local chez une PME suisse pour garantir conformité nLPD/RGPD. Hardware nécessaire, setup avec Ollama, cas d'usage et limites concrètes." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80" />
+
+<meta name="theme-color" content="#FAF8F4" />
+<link rel="icon" type="image/png" href="/ia/favicon.png" />
+<link rel="icon" type="image/svg+xml" href="/ia/favicon.svg" />
+<link rel="apple-touch-icon" href="/ia/apple-touch-icon.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mistral en local pour une PME suisse : déployer un agent IA sans envoyer ses données ailleurs",
+  "description": "Comment déployer Mistral ou un modèle open-source en local chez une PME suisse pour garantir conformité nLPD/RGPD. Hardware nécessaire, setup avec Ollama, cas d'usage et limites concrètes.",
+  "url": "https://finalyn.ch/ia/blog/mistral-local-pme-suisse-rgpd.html",
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+  "author": {"@type": "Organization", "name": "finalyn.ia", "@id": "https://finalyn.ch/ia/#organization"},
+  "publisher": {"@id": "https://finalyn.ch/ia/#organization"},
+  "inLanguage": "fr-CH",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://finalyn.ch/ia/blog/mistral-local-pme-suisse-rgpd.html"},
+  "articleSection": "Technique"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://finalyn.ch/ia/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://finalyn.ch/ia/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Mistral en local pour une PME suisse : déployer un agent IA sans envoyer ses données ailleurs", "item": "https://finalyn.ch/ia/blog/mistral-local-pme-suisse-rgpd.html"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/service-page.css" />
+<link rel="stylesheet" href="../assets/blog.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="brand">finalyn<span class="ia">.ia</span></a>
+  <nav class="nav-links" aria-label="Navigation principale">
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#cas-usage">Cas d'usage</a>
+    <a href="../index.html#stack">Outils</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#audit">Audit gratuit</a>
+  </nav>
+</nav>
+
+<section class="article-hero">
+  <p class="article-breadcrumb"><a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · Technique</p>
+  <span class="article-tag">Technique</span>
+  <h1>Mistral en local pour une PME suisse : déployer un agent IA sans envoyer ses données ailleurs</h1>
+  <div class="article-meta">
+    <time datetime="2026-05-19">19 mai 2026</time>
+    <span>· 7 min de lecture</span>
+    <span>· finalyn.ia</span>
+  </div>
+</section>
+
+<figure class="article-cover">
+  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80" alt="Serveurs et infrastructure réseau symbolisant le déploiement IA en local pour PME suisses" loading="eager" decoding="async" />
+</figure>
+
+<article class="article-body">
+
+<p>En Suisse, certains secteurs ne peuvent simplement pas envoyer leurs données à des APIs cloud américaines, même avec les meilleures garanties contractuelles. Le secret médical, le secret bancaire, le secret professionnel des avocats, certaines données stratégiques industrielles : tout cela impose une approche différente.</p>
+<p>La bonne nouvelle : depuis fin 2024, les modèles open-source en local rivalisent avec les modèles cloud sur la plupart des cas d'usage PME. Voici comment.</p>
+<h2>Pourquoi un modèle en local ?</h2>
+<p>Quatre raisons concrètes :</p>
+<ul>
+  <li><strong>Conformité réglementaire stricte.</strong> Avec un modèle en local, vos données ne quittent jamais votre infrastructure. nLPD, RGPD, secret médical : tout est respecté par construction.</li>
+  <li><strong>Pas de coûts variables.</strong> Une API OpenAI facture par token consommé. Un modèle local tourne sur du matériel que vous possédez, le coût marginal d'une requête est proche de zéro.</li>
+  <li><strong>Pas de dépendance à un fournisseur.</strong> Si OpenAI augmente ses prix, change ses CGU ou subit une panne, vous êtes bloqué. En local, vous êtes maître.</li>
+  <li><strong>Latence ultra-faible.</strong> Pas d'appel réseau vers les États-Unis ou l'Irlande. La réponse arrive en quelques centaines de millisecondes.</li>
+</ul>
+<h2>Quel matériel faut-il vraiment ?</h2>
+<p>Contrairement à une idée reçue, vous n'avez pas besoin d'un datacenter pour faire tourner un modèle utilisable.</p>
+<h3>Configuration entrée de gamme (~3 000 CHF)</h3>
+<p>Un Mac Mini M4 Pro avec 24 Go de RAM unifiée fait tourner <strong>Mistral 7B Instruct</strong> et <strong>Llama 3.1 8B</strong> à environ 30 tokens/seconde. Suffisant pour : tri de mails, classification, résumés, extraction de données. Coût total avec installation : ~3 500 CHF, amortissable sur 4 à 5 ans.</p>
+<h3>Configuration intermédiaire (~8 000 CHF)</h3>
+<p>Un serveur avec une RTX 4090 (24 Go VRAM) ou un Mac Studio M4 Max avec 48 Go fait tourner <strong>Mistral Small 22B</strong> ou <strong>Llama 3.1 70B quantisé</strong>. Qualité de réponse proche de GPT-4 sur les tâches métier courantes. Supporte 5 à 10 utilisateurs simultanés.</p>
+<h3>Configuration entreprise (~25 000 CHF)</h3>
+<p>Un serveur avec 2× RTX 6000 Ada ou 1× H100 fait tourner les modèles 70B+ à pleine résolution avec 20 à 50 utilisateurs simultanés. Pour une PME de 30-50 personnes utilisant l'IA quotidiennement.</p>
+<div class="callout">
+<strong>À retenir :</strong> pour 80 % des cas d'usage PME, un Mac Mini M4 Pro à 3 000 CHF suffit largement. Pas besoin de surdimensionner.
+</div>
+<h2>Comment ça se déploie concrètement</h2>
+<p>L'outil de référence est <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>, qui installe et fait tourner les modèles open-source en quelques minutes :</p>
+<pre><code># Installation sur Mac
+brew install ollama
+
+# Téléchargement et lancement de Mistral
+ollama pull mistral:latest
+ollama run mistral
+
+# API HTTP locale immédiatement disponible
+curl http://localhost:11434/api/generate -d '{
+  "model": "mistral",
+  "prompt": "Résume ce document en 3 points : ..."
+}'
+</code></pre>
+<p>Une fois le modèle accessible via API locale, on le connecte à vos outils via n8n, Make ou du code custom, exactement comme une API OpenAI, mais sans rien envoyer dehors.</p>
+<h2>Cas d'usage parfaitement adaptés au local</h2>
+<ul>
+  <li><strong>Résumé de comptes-rendus médicaux</strong> pour cabinets et cliniques (secret médical respecté)</li>
+  <li><strong>Analyse de contrats et notes juridiques</strong> pour études d'avocats (secret professionnel respecté)</li>
+  <li><strong>Pré-traitement de documents bancaires</strong> (secret bancaire respecté)</li>
+  <li><strong>Recherche RAG dans la documentation interne</strong> (sans risquer une fuite de propriété intellectuelle)</li>
+  <li><strong>Classification de tickets support</strong> contenant des données client sensibles</li>
+  <li><strong>Génération de devis</strong> à partir de catalogues produits confidentiels</li>
+</ul>
+<h2>Les limites à connaître</h2>
+<p>Soyons honnêtes : le local n'est pas la solution universelle.</p>
+<ul>
+  <li><strong>Tâches très créatives (rédaction longue de qualité éditoriale)</strong> : GPT-4 et Claude restent encore devant pour le moment.</li>
+  <li><strong>Multimodal avancé (vision, audio)</strong> : les modèles open-source progressent vite mais sont encore en retard sur Claude 4.7 ou GPT-5 pour ces usages.</li>
+  <li><strong>Maintenance hardware</strong> : un serveur en local doit être surveillé, sauvegardé, mis à jour. C'est du travail récurrent, à intégrer dans le coût total.</li>
+  <li><strong>Mise à jour des modèles</strong> : il faut suivre les sorties (Mistral, Llama, Qwen sortent des nouvelles versions tous les 2-3 mois) et tester les régressions avant de basculer.</li>
+</ul>
+<h2>Approche hybride : le meilleur des deux mondes</h2>
+<p>La plupart de nos clients PME romandes choisissent une approche <strong>hybride</strong> :</p>
+<ul>
+  <li><strong>Modèle local</strong> pour tout ce qui touche aux données sensibles (clients, contrats, docs internes)</li>
+  <li><strong>API cloud</strong> pour les tâches non-sensibles où la qualité de pointe compte (rédaction marketing, recherche web, génération créative)</li>
+</ul>
+<p>Cette approche permet de respecter strictement la nLPD sur ce qui compte, tout en bénéficiant de la puissance des modèles frontière sur le reste.</p>
+<h2>Combien ça coûte sur 3 ans ?</h2>
+<p>Comparaison pour une PME suisse de 15 personnes utilisant l'IA intensivement :</p>
+<ul>
+  <li><strong>API OpenAI / Anthropic</strong> : ~500 CHF/mois × 36 mois = <strong>18 000 CHF</strong> (et ce coût augmente avec l'usage)</li>
+  <li><strong>Mac Studio M4 Max self-hosted</strong> : ~6 500 CHF d'investissement + 2 000 CHF de setup + ~100 CHF/mois d'électricité et maintenance = <strong>~12 000 CHF</strong> sur 3 ans</li>
+</ul>
+<p>Le local est moins cher à terme, sans compter le bénéfice de souveraineté et de conformité.</p>
+<h2>Par où commencer si vous voulez du local ?</h2>
+<ol>
+  <li><strong>Auditez vos cas d'usage</strong> : lesquels touchent à des données vraiment sensibles, lesquels sont génériques ?</li>
+  <li><strong>Choisissez votre approche</strong> : tout local, tout cloud, ou hybride.</li>
+  <li><strong>Démarrez petit</strong> : un Mac Mini avec Ollama pour tester un premier cas d'usage avant d'investir dans plus puissant.</li>
+  <li><strong>Faites-vous accompagner</strong> par quelqu'un qui maîtrise les deux approches pour éviter les pièges (gestion de la VRAM, quantization, gestion du contexte, sécurité réseau).</li>
+</ol>
+<p>Chez <a href="../index.html">finalyn.ia</a>, on déploie régulièrement Mistral en local pour des PME romandes dans la santé, le juridique et la finance. <a href="../index.html#audit">Audit gratuit</a> pour valider si c'est la bonne approche pour vous.</p>
+
+</article>
+
+<section class="article-cta">
+  <h3>Discutons de votre cas concret.</h3>
+  <p>Audit IA gratuit de 30 minutes en visio, sans engagement. Roadmap personnalisée livrée sous 24 h.</p>
+  <a href="../index.html#audit" class="btn-primary">
+    Réserver l'audit gratuit
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+  </a>
+</section>
+
+<section class="article-related">
+  <h3>À lire aussi</h3>
+  <div class="blog-list" style="padding: 0;">
+
+    <a href="comparatif-modeles-ia-2026-pme.html" class="blog-card">
+      <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80');" aria-hidden="true"></div>
+      <div class="blog-card-content">
+        <span class="blog-card-tag">Tech</span>
+        <h2>Claude 4.7, GPT-5, Gemini 2.5, Mistral : quel modèle IA pour quelle PME en 2026 ?</h2>
+        <p>Claude 4.7 pour le raisonnement, GPT-5 pour l'écosystème Microsoft, Gemini 2.5 pour le multimodal, Mistral pour le local. Le bon choix dépend de votre PME.</p>
+        <div class="blog-card-meta">
+          <span>19 mai 2026 · 8 min</span>
+          <strong>Lire →</strong>
+        </div>
+      </div>
+    </a>
+    <a href="intelligence-artificielle-pme-suisse-guide-2026.html" class="blog-card">
+      <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80');" aria-hidden="true"></div>
+      <div class="blog-card-content">
+        <span class="blog-card-tag">Stratégie</span>
+        <h2>L'IA dans les PME suisses : guide pratique 2026</h2>
+        <p>Par où commencer concrètement quand on dirige une PME suisse en 2026 ? Cas d'usage prioritaires, conformité nLPD, coûts réels et 4 erreurs à éviter.</p>
+        <div class="blog-card-meta">
+          <span>19 mai 2026 · 8 min</span>
+          <strong>Lire →</strong>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+ <div class="footer-container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="https://finalyn.ch" target="_blank" rel="noopener" class="footer-logo" aria-label="Finalyn, site du groupe">
+        <img src="../logo-finalyn.webp" alt="" width="120" height="32" />
+      </a>
+      <p class="footer-tag">Agence IA basée à Rolle, active dans toute la Suisse romande. Nous implémentons, optimisons et concevons des systèmes IA sur mesure : agents IA, automatisations, intégrations.</p>
+      <div class="footer-contacts">
+        <a href="mailto:contact@finalyn.com" class="footer-mail">contact@finalyn.com</a>
+        <a href="tel:+41796393684" class="footer-mail">+41 79 639 36 84</a>
+        <a href="https://wa.me/41796393684" target="_blank" rel="noopener" class="footer-mail footer-wa">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/company/finalyn" target="_blank" rel="noopener" class="footer-mail footer-li">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.instagram.com/finalyn.ch/" target="_blank" rel="noopener" class="footer-mail footer-ig">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <nav class="footer-nav" aria-label="Services">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="../services/agents-ia.html">Agents IA</a></li>
+        <li><a href="../services/automatisation.html">Workflows</a></li>
+        <li><a href="../services/integrations.html">Intégrations</a></li>
+        <li><a href="../services/audit.html">Audit</a></li>
+        <li><a href="../services/personnalisation.html">Sur mesure</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-nav" aria-label="Naviguer">
+      <h4>Sur le site</h4>
+      <ul>
+        <li><a href="../index.html#pourquoi">Pourquoi l'IA</a></li>
+        <li><a href="../index.html#cas-usage">Cas d'usage</a></li>
+        <li><a href="../index.html#stack">Outils compatibles</a></li>
+        <li><a href="../index.html#audit">Audit gratuit</a></li>
+        <li><a href="../index.html#realisations">Réalisations</a></li>
+        <li><a href="../index.html#calculateur">Calculateur ROI</a></li>
+        <li><a href="../index.html#securite">Sécurité &amp; données</a></li>
+        <li><a href="../index.html#avis-ia">Avis IA</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-meta" itemscope itemtype="https://schema.org/Organization">
+      <h4 itemprop="name">finalyn.ia</h4>
+      <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="streetAddress" hidden></span>
+        <span itemprop="addressLocality">Rolle</span>,
+        <span itemprop="addressRegion">Vaud</span>,
+        <span itemprop="addressCountry">Suisse</span>
+      </p>
+      <p>Active dans toute la Suisse romande, en visio partout ailleurs.</p>
+      <p class="footer-stamp">nLPD · données hébergées en Suisse / UE selon le projet.</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© <time datetime="2026">2026</time> Finalyn, tous droits réservés.</p>
+    <ul class="footer-legal">
+      <li><a href="../mentions-legales.html">Mentions légales</a></li>
+      <li><a href="../confidentialite.html">Confidentialité</a></li>
+    </ul>
+  </div>
+ </div>
+</footer>
+
+<script src="/ia/assets/consent.js" defer></script>
+</body>
+</html>

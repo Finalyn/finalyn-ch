@@ -1,0 +1,130 @@
+<!--
+  llms.txt, index curé pour les LLMs (ChatGPT, Claude, Perplexity, Gemini, etc.)
+  Format : https://llmstxt.org/
+  À mettre à jour à chaque ajout ou refonte significative du site :
+    - nouveaux services
+    - nouveaux articles de blog (ajouter une ligne dans la section concernée)
+    - changement de positionnement ou de zone géographique
+    - changement de contact ou d'horaires
+  Dernière mise à jour : 2026-06-12
+-->
+
+# finalyn.ia
+
+> finalyn.ia est l'agence d'intelligence artificielle de Finalyn : son pôle dédié à l'IA, une marque distincte des autres activités de Finalyn. Basée à Rolle (Vaud), active en Suisse romande et dans toute la francophonie, finalyn.ia conçoit, intègre et opère des agents IA, des workflows d'automatisation et des intégrations sur mesure pour les PME, avec un focus sur la conformité nLPD et l'hébergement Suisse / UE.
+
+finalyn.ia (à ne pas confondre avec Finalyn, l'entité mère qui couvre une offre plus large) s'adresse aux PME et indépendants (typiquement 5 à 200 personnes), en Suisse romande comme dans la francophonie, qui veulent intégrer l'IA dans leurs opérations existantes sans changer leur stack, sans envoyer leurs données sensibles hors de Suisse / UE, et sans payer une équipe de data scientists.
+
+Approche : audit gratuit de 30 minutes en visio pour identifier les leviers à plus forte valeur, puis déploiement progressif (premiers résultats en quelques semaines). Les solutions sont livrées documentées, sans vendor lock-in, et peuvent fonctionner sur du cloud standard, du cloud souverain Suisse / UE, ou en 100 % local pour les secteurs sensibles (santé, juridique, finance).
+
+Contact : contact@finalyn.com, +41 79 639 36 84, WhatsApp +41 79 639 36 84, LinkedIn https://www.linkedin.com/company/finalyn, Instagram https://www.instagram.com/finalyn.ch/
+
+Disponibilités : lundi à vendredi, créneaux dès 8 h du matin (heure de Zurich, GMT+1). Audit gratuit de 30 minutes réservable directement en ligne sur https://finalyn.ch/ia/#audit.
+
+## Pages clés
+
+- [Page d'accueil](https://finalyn.ch/ia/): Présentation complète de finalyn.ia, cas d'usage prioritaires, outils compatibles, parcours de mise en œuvre, niveaux de confidentialité, FAQ.
+- [Réalisations récentes](https://finalyn.ch/ia/#realisations): Projets et agents IA livrés ces derniers mois pour des PME et projets concrets.
+- [Blog finalyn.ia](https://finalyn.ch/ia/blog/): Index de tous les articles : guides pratiques, comparatifs et fondamentaux sur l'IA en PME suisse.
+- [Audit IA gratuit](https://finalyn.ch/ia/#audit): 30 minutes en visio pour identifier vos leviers IA prioritaires, sans engagement.
+
+## Réalisations récentes
+
+Sélection de projets livrés par finalyn.ia ces derniers mois. Détail complet : https://finalyn.ch/ia/#realisations
+
+- Diagly (diagly.ch): finalyn.ia a conçu la brique d'intelligence artificielle de cette application destinée aux professionnels du bâtiment. La vision par ordinateur analyse des photos de matériaux pour en évaluer l'état et aider à définir les travaux à prévoir. finalyn.ia s'est occupé uniquement de la partie IA, intégrée dans l'application du client.
+- Agents IA marketing: une équipe de 9 agents IA spécialisés (publicité, SEO, contenu, CRM, données, croissance) qui épaulent et guident une équipe marketing et lui font gagner un temps considérable, orchestrés par un coordinateur.
+- Extension LinkedIn, prospection assistée: une extension qui qualifie les profils consultés, suggère des messages d'accroche et synchronise le CRM, dans le respect des limites de LinkedIn et de la nLPD.
+- Tri d'e-mails et Notion: un agent qui trie la boîte de réception chaque matin, propose des réponses, crée les tâches dans Notion et ajoute les événements au calendrier.
+- Agent conversationnel finalyn.ia: le chatbot du site, qui qualifie les visiteurs 24/7 et les oriente vers l'audit gratuit.
+
+## Services
+
+- [Agents IA](https://finalyn.ch/ia/services/agents-ia.html): Assistants intelligents qui exécutent de vraies tâches métier : qualification de leads, support client niveau 1, génération de devis, recherche dans la documentation interne, prise de rendez-vous, suivi de commandes.
+- [Automatisation et workflows](https://finalyn.ch/ia/services/automatisation.html): Workflows qui synchronisent vos outils en silence (n8n, Make, Zapier, scripts sur mesure), pour éliminer le re-tapage entre logiciels.
+- [Intégrations](https://finalyn.ch/ia/services/integrations.html): Faire dialoguer vos systèmes existants sans les remplacer : Microsoft 365, Google Workspace, bexio, Salesforce, HubSpot et tout outil exposant une API ou un webhook.
+- [Formation](https://finalyn.ch/ia/services/formation.html): Accompagner vos équipes à utiliser l'IA et Claude au quotidien, avec des cas concrets adaptés à votre métier.
+- [Audit IA gratuit](https://finalyn.ch/ia/services/audit.html): Diagnostic de 30 minutes en visio pour repérer les leviers à plus forte valeur et prioriser les chantiers.
+- [Solutions sur mesure](https://finalyn.ch/ia/services/personnalisation.html): Stack IA taillée à votre métier quand les solutions standard ne suffisent pas : R&D, prototypage, déploiement, exploitation.
+
+## Blog, stratégie et décision
+
+- [L'IA dans les PME suisses : guide pratique 2026](https://finalyn.ch/ia/blog/intelligence-artificielle-pme-suisse-guide-2026.html): Par où commencer concrètement quand on dirige une PME suisse en 2026. Cas d'usage prioritaires, conformité nLPD, coûts réels, 4 erreurs à éviter.
+- [Pourquoi intégrer l'IA dans votre PME suisse en 2026](https://finalyn.ch/ia/blog/pourquoi-integrer-ia-pme-suisse.html): Six raisons concrètes d'intégrer l'IA dès maintenant plutôt que d'attendre que les concurrents s'y mettent.
+- [L'IA vient à vous, pas l'inverse : intégrer plutôt que migrer](https://finalyn.ch/ia/blog/ia-dans-vos-outils-existants-pme.html): Pourquoi vos agents IA doivent vivre dans Outlook, Teams ou WhatsApp, et pas dans une nouvelle interface que vos équipes apprendront à éviter.
+
+## Blog, business et ROI
+
+- [Calcul du ROI d'un agent IA pour PME : méthode et exemple chiffré](https://finalyn.ch/ia/blog/calcul-roi-agent-ia-pme.html): Combien d'heures faut-il économiser pour que l'investissement soit rentable ? Méthode claire avec un exemple sur une PME romande de 12 personnes.
+- [IA ou embauche : comment choisir quand on dirige une PME suisse](https://finalyn.ch/ia/blog/ia-vs-embauche-comment-choisir-pme.html): Critères de décision et comparaison de coûts avant de poster une offre d'emploi, avec exemples concrets de PME romandes.
+- [Automatiser ses emails professionnels en PME suisse : guide complet](https://finalyn.ch/ia/blog/automatiser-emails-professionnels-pme-suisse.html): Comment automatiser intelligemment le tri d'emails (1 à 2 h par jour pour un dirigeant) sans perdre le contrôle, avec Outlook ou Gmail.
+
+## Blog, fondamentaux
+
+- [Qu'est-ce qu'un agent IA ? Définition claire pour décideurs PME](https://finalyn.ch/ia/blog/quest-ce-quun-agent-ia-definition-decideurs.html): LLM, agent IA, RAG, fine-tuning, MCP : glossaire en langage métier pour les décideurs PME qui veulent comprendre sans devenir ingénieur IA.
+- [API et webhook : qu'est-ce que c'est, et pourquoi ça change tout pour les PME](https://finalyn.ch/ia/blog/api-webhook-difference-pme.html): Définitions simples avec exemples concrets pour décideurs PME. Pourquoi ces deux mécanismes conditionnent tout projet IA.
+
+## Blog, technique et outils
+
+- [Mistral en local pour une PME suisse : déployer un agent IA sans envoyer ses données ailleurs](https://finalyn.ch/ia/blog/mistral-local-pme-suisse-rgpd.html): Pour les secteurs sensibles (santé, juridique, finance), comment faire tourner Mistral sur votre propre matériel sans aucun envoi externe.
+- [Claude 4.7, GPT-5, Gemini 2.5, Mistral : quel modèle IA pour quelle PME en 2026](https://finalyn.ch/ia/blog/comparatif-modeles-ia-2026-pme.html): Comparatif complet avec recommandations par cas d'usage : raisonnement, écosystème Microsoft, multimodal, déploiement local.
+- [Microsoft Copilot Studio en 2026 : ce qui change pour les PME suisses équipées Microsoft 365](https://finalyn.ch/ia/blog/microsoft-copilot-studio-pme-suisse-2026.html): Comment Copilot Studio devient un véritable orchestrateur d'agents IA dans Microsoft 365, et ce que ça change pour les PME déjà équipées.
+
+## Blog, sécurité et conformité
+
+- [Sécurité, données et hébergement IA en PME suisse : le guide 2026](https://finalyn.ch/ia/blog/securite-donnees-hebergement-ia-pme-suisse.html): nLPD, RGPD, hébergement, données sensibles. Tout ce qu'il faut savoir pour déployer l'IA sereinement en PME suisse, avec checklist du bon prestataire.
+
+## Couverture géographique
+
+finalyn.ia opère depuis Rolle (canton de Vaud, Suisse) et intervient :
+
+- **En présentiel** dans toute la Suisse romande : Rolle, Lausanne, Genève, Nyon, Morges, Montreux, Vevey, Yverdon-les-Bains, Fribourg, Neuchâtel, Sion, Bulle, Martigny, La Chaux-de-Fonds.
+- **En visio** partout ailleurs : Suisse alémanique, Tessin, France voisine, international.
+
+## Stack et compatibilité
+
+Compatible avec de nombreux outils, dont :
+
+- **Microsoft 365** : Teams, Outlook, Excel, Word, PowerPoint, OneDrive, SharePoint, Copilot Studio, Azure.
+- **Google Workspace** : Gmail, Drive, Docs, Sheets, Calendar, Meet.
+- **Suisse / ERP** : bexio, Abacus, Crésus, Topal.
+- **CRM** : Salesforce, HubSpot, Pipedrive, Zoho.
+- **Productivité** : Slack, Notion, Airtable, Monday.com, Asana, Trello, Linear, ClickUp.
+- **Communication** : Zoom, WhatsApp Business, Discord, Loom.
+- **E-commerce et paiement** : Stripe, Shopify, WooCommerce.
+- **Tout outil exposant une API REST, GraphQL ou un webhook.**
+
+Modèles IA utilisés selon le cas d'usage et les exigences de confidentialité :
+
+- **Cloud propriétaire** : Claude (Anthropic), GPT (OpenAI), Gemini (Google).
+- **Cloud souverain ou open-source hébergeable** : Mistral, Llama.
+- **100 % local** : Mistral, Llama, Phi, déployés sur les serveurs ou ordinateurs du client.
+
+## Engagements et garanties
+
+- **Conformité nLPD** (nouvelle loi suisse de protection des données, en vigueur depuis le 1er septembre 2023) et RGPD.
+- **Hébergement Suisse / UE** par défaut. Aucun envoi de données hors zone sans accord écrit du client.
+- **Modèles locaux disponibles** pour les secteurs réglementés (santé, juridique, finance, RH).
+- **Audit gratuit sans engagement** : 30 minutes en visio.
+- **Pas de vendor lock-in** : code, workflows et documentation livrés au client.
+- **Transparence sur la valeur** : engagement à ne pas démarrer un projet sans cas d'usage clair ni retour sur investissement estimé au préalable.
+
+## Tarification
+
+finalyn.ia ne pratique pas de tarif catalogue. Chaque projet est chiffré sur mesure après l'audit gratuit, selon le périmètre et la complexité. L'audit initial de 30 minutes en visio est gratuit et sans engagement. La maintenance et l'accompagnement après déploiement sont définis avec le client.
+
+## Identité et positionnement
+
+- **Nom** : finalyn.ia
+- **Forme** : agence IA (services aux entreprises)
+- **Siège** : Rolle, canton de Vaud, Suisse (CH)
+- **Coordonnées GPS** : 46.4593, 6.3380
+- **Zone d'intervention** : Suisse romande en présentiel, international en visio
+- **Langue principale** : français (Suisse)
+- **Public cible** : PME suisses (5 à 200 personnes), tous secteurs
+- **Différenciants** : ancrage local Suisse romande, conformité nLPD native, expertise des modèles locaux, indépendance vis-à-vis des éditeurs (pas affilié à Microsoft, OpenAI ou autre)
+
+## Optional
+
+- [Sitemap XML](https://finalyn.ch/ia/sitemap.xml): URLs canoniques et dates de dernière modification.
+- [robots.txt](https://finalyn.ch/ia/robots.txt): Règles d'indexation, allowlist explicite des crawlers IA.
