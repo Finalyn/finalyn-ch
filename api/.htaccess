@@ -1,0 +1,9 @@
+# Protege les fichiers sensibles du dossier api/.
+# route.php reste accessible ; clef eventuelle et cache sont bloques.
+
+<FilesMatch "^(config\.php|config\.example\.php)$">
+  Require all denied
+</FilesMatch>
+
+# Bloque l'acces direct au cache (rate-limit)
+RedirectMatch 404 ^/api/\.cache/.*$

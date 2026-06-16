@@ -2,4 +2,7 @@
 ia/api/config.php
 ia/api/.data/
 ia/api/.cache/
+# Endpoint d'orientation du hub (cache anti-abus + config éventuelle)
+api/config.php
+api/.cache/
 **/.DS_Store
