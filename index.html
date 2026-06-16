@@ -38,7 +38,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 
 <!-- ============ STRUCTURED DATA · Studio Finalyn + poles ============ -->
 <script type="application/ld+json">
@@ -135,10 +135,17 @@ a{color:inherit;text-decoration:none}
   letter-spacing:-.03em;margin:0}
 .statement .accent{color:var(--ink)}
 .hub__sub{margin:22px 0 0;font-size:clamp(1rem,1.6vw,1.18rem);color:var(--muted);font-weight:500}
+.rot-line{margin:24px 0 0;font-size:clamp(1.25rem,2.6vw,2rem);font-weight:500;color:var(--muted)}
+.rot{font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;cursor:pointer;
+  transition:opacity .28s ease,border-color .2s}
+.rot:hover{border-bottom-color:currentColor}
 
 /* filiales (petit) */
 .filiales{display:flex;justify-content:center;gap:clamp(20px,5vw,52px);flex-wrap:wrap;margin-top:54px}
-.fil{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 12px;border-radius:14px;transition:transform .2s,background .2s,box-shadow .2s}
+.fil{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 12px;border-radius:14px;transition:transform .2s,background .2s,box-shadow .2s}
+.tuto{position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;pointer-events:none;white-space:nowrap}
+.tuto b{font-family:'Caveat',cursive;font-weight:700;font-size:1.5rem;line-height:1;color:var(--ia);transform:rotate(-6deg)}
+.tuto svg{width:34px;height:30px;color:var(--ia);margin-top:1px}
 .fil:hover{transform:translateY(-3px);background:#fff;box-shadow:0 18px 36px -24px rgba(15,23,42,.5)}
 .fil__name{font-size:1.18rem;font-weight:600;letter-spacing:-.02em}
 .fil__name .ia{color:var(--ia)} .fil__name .web{color:var(--brand)}
@@ -200,10 +207,13 @@ a{color:inherit;text-decoration:none}
   <div class="hub__veil" aria-hidden="true"></div>
   <div class="hub__inner">
     <h1 class="statement">À chaque besoin,<br>son <span class="accent">expertise</span>.</h1>
-    <p class="hub__sub">Intelligence artificielle, web ou jeux : choisissez le pôle qui correspond à votre projet.</p>
+    <p class="rot-line">Besoin d'<a class="rot" id="rot" href="ia/">intelligence artificielle</a>&nbsp;?</p>
 
     <div class="filiales">
-      <a class="fil fil--live" href="ia/"><span class="fil__name">finalyn<span class="ia">.ia</span></span><small>Agence IA</small></a>
+      <a class="fil fil--live" href="ia/">
+        <span class="tuto"><b>Par ici&nbsp;!</b><svg viewBox="0 0 40 42" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4c-6 11 6 18-3 30"/><path d="M12 27l7 7 8-6"/></svg></span>
+        <span class="fil__name">finalyn<span class="ia">.ia</span></span><small>Agence IA</small>
+      </a>
       <a class="fil" href="web/"><span class="fil__name">finalyn<span class="web">.web</span></span><small>Web &amp; apps</small></a>
       <a class="fil" href="https://jmm.finalyn.ch"><span class="fil__name"><span class="jmm">JMM</span> <span class="st">Studio</span></span><small>Jeux</small></a>
     </div>
@@ -225,6 +235,21 @@ a{color:inherit;text-decoration:none}
     ddBtn.setAttribute('aria-expanded',open?'true':'false');
   });
   document.addEventListener('click',function(){ dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded','false'); });
+
+  /* Rotateur "Besoin de..." — uniquement les agences (IA, web) */
+  var ITEMS=[
+    {t:"intelligence artificielle", c:'var(--ia)',    u:'ia/'},
+    {t:"un site ou une application", c:'var(--brand)', u:'web/'}
+  ];
+  var rot=document.getElementById('rot'), ri=0;
+  function rshow(n){ rot.textContent=ITEMS[n].t; rot.style.color=ITEMS[n].c; rot.setAttribute('href',ITEMS[n].u); }
+  if(rot){
+    rshow(0);
+    setInterval(function(){
+      rot.style.opacity='0';
+      setTimeout(function(){ ri=(ri+1)%ITEMS.length; rshow(ri); rot.style.opacity='1'; },300);
+    },2800);
+  }
 })();
 </script>
 </body>
