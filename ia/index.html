@@ -5754,11 +5754,24 @@
     }
   }
 
-  /* Force title on 3 lines below 1280 */
-  @media (max-width: 1280px) {
+  /* Titre sur plusieurs lignes en tablette */
+  @media (max-width: 1366px) {
     h1 .rot-block { display: block; }
     .services-container { padding: 2.25rem 2.25rem; }
     .services-head { margin-bottom: 2rem; }
+  }
+  /* iPad paysage : hero complet mais rapetissé (texte gauche + photo réduite droite) */
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    .left { max-width: 52%; padding: 4rem 1.5rem 3rem 3rem; }
+    h1 { font-size: clamp(2.2rem, 3.8vw, 3.2rem); }
+    .lede { font-size: 1rem; }
+    .photo-stage { left: 80%; width: clamp(300px, 30vw, 420px); top: 19%; bottom: 17%; }
+    .photo-tag { font-size: 0.72rem; padding: 0.45rem 0.72rem; }
+    .photo-tag.t-tl { top: -8px; left: 8%; }
+    .photo-tag.t-tr { top: 4%; right: 2%; }
+    .photo-tag.t-ml { top: 16%; left: -10px; }
+    .photo-tag.t-br { top: 32%; right: -10px; }
+    .photo-tag.t-bl { top: 44%; left: 4%; }
   }
 
   @media (max-width: 1024px) {
