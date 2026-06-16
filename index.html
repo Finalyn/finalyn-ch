@@ -286,9 +286,15 @@ a{color:inherit;text-decoration:none}
     rform.addEventListener('submit',function(e){
       e.preventDefault(); var q=rinput.value.trim(); if(!q)return;
       var r=route(q);
-      if(r){ rout.innerHTML='<div class="rcard"><span class="rtxt">Pour ça, c\'est <b>'+r.label+'</b>, '+r.why+'.</span><a href="'+r.u+'">Y aller '+arr()+'</a></div>'; }
-      else { rout.innerHTML='<div class="rcard"><span class="rtxt">En un mot : IA, site, marketing, jeux… ou <b>écrivez-nous</b>.</span><a href="mailto:contact@finalyn.ch?subject=Mon%20besoin">Nous écrire '+arr()+'</a></div>'; }
-      rout.classList.add('show');
+      if(r){
+        var url=r.u;
+        // on transmet la phrase pour la pré-remplir sur la page cible (agences internes)
+        if(url==='ia/'||url==='web/'){ url+='?besoin='+encodeURIComponent(q); }
+        window.location.href=url;
+      } else {
+        rout.innerHTML='<div class="rcard"><span class="rtxt">Précisez en un mot : IA, site, marketing, jeux… ou <b>écrivez-nous</b>.</span><a href="mailto:contact@finalyn.ch?subject=Mon%20besoin">Nous écrire '+arr()+'</a></div>';
+        rout.classList.add('show');
+      }
     });
   }
 })();

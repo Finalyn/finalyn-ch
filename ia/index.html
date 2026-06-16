@@ -3320,6 +3320,19 @@
     .cal-modal-dialog { border-radius: 16px; padding: 1.25rem 1.25rem 1.5rem; }
   }
 
+  /* Audit : empilé (1 colonne) dès la tablette/iPad — calendrier SOUS l'info,
+     donc la flèche pointe vers le bas et le dégradé peut passer à la ligne */
+  @media (max-width: 1366px) {
+    .audit-block { grid-template-columns: 1fr; gap: 2rem; }
+    .audit-cal-wrap { justify-content: center; }
+    .audit-info { align-items: center; text-align: center; }
+    .audit-info .step-eyebrow { align-self: auto; }
+    .audit-info .audit-primary { align-self: auto; }
+    .audit-info .audit-note { align-self: center; }
+    .audit-info h3 .audit-grad { white-space: normal; }
+    .audit-info .audit-desc { max-width: 520px; margin-left: auto; margin-right: auto; }
+    .audit-info .audit-primary svg { transform: rotate(90deg); }
+  }
   @media (max-width: 860px) {
     .parcours { margin: 5rem auto 3rem; }
     .parcours-container { gap: 2.5rem; }
@@ -5754,12 +5767,21 @@
     }
   }
 
-  /* Tablette : photo masquée, titre sur plusieurs lignes, texte pleine largeur */
+  /* Tablette (<=1366) : photo masquée, titre plus grand, texte pleine largeur */
   @media (max-width: 1366px) {
     h1 .rot-block { display: block; }
-    .left { padding-left: 3rem; padding-right: 2.5rem; max-width: 760px; }
+    h1 { font-size: clamp(2.8rem, 6.4vw, 4.6rem); }
+    .left { padding-left: 3rem; padding-right: 2.5rem; max-width: 900px; }
     .services-container { padding: 2.25rem 2.25rem; }
     .services-head { margin-bottom: 2rem; }
+  }
+  /* Petit PC (1367-1500) : photo visible mais tout rapetissé (évite la collision texte/image) */
+  @media (min-width: 1367px) and (max-width: 1500px) {
+    h1 .rot-block { display: block; }
+    h1 { font-size: clamp(2.6rem, 4.2vw, 3.7rem); }
+    .left { max-width: 54%; padding-right: 1.5rem; }
+    .photo-stage { left: 80%; width: clamp(340px, 32vw, 460px); }
+    .photo-tag { font-size: 0.74rem; padding: 0.45rem 0.72rem; }
   }
 
   @media (max-width: 1024px) {
@@ -9131,6 +9153,19 @@
         else ucp.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
       }, 650);
     });
+  })();
+
+  // Pré-remplissage depuis le hub (finalyn.ch ?besoin=...) — pré-rempli seulement, pas envoyé
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('besoin');
+      if (!q) return;
+      q = q.slice(0, 300);
+      var hero = document.querySelector('.prompt-wrap .prompt-bar input');
+      if (hero) hero.value = q;
+      var uci = document.getElementById('usecaseInput');
+      if (uci) uci.value = q;
+    } catch (e) {}
   })();
 
   // Typewriter rotating word in headline
