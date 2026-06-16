@@ -9,6 +9,14 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^(www\.)?ia\.finalyn\.ch$ [NC]
 RewriteRule ^(.*)$ https://finalyn.ch/ia/$1 [R=301,L]
 
+# --- 0b) Ancien domaine finalyn.com -> finalyn.ch (canonique, chemins conservés) ---
+#     Évite le doublon finalyn.com / finalyn.ch. L'ancienne page IA part direct sur /ia.
+#     (ne s'applique que si finalyn.com pointe vers CET hébergement)
+RewriteCond %{HTTP_HOST} ^(www\.)?finalyn\.com$ [NC]
+RewriteRule ^services/automatisation/?$ https://finalyn.ch/ia/ [R=301,L]
+RewriteCond %{HTTP_HOST} ^(www\.)?finalyn\.com$ [NC]
+RewriteRule ^(.*)$ https://finalyn.ch/$1 [R=301,L]
+
 # --- 1) Forcer HTTPS ---
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
