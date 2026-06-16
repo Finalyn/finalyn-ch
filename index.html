@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="finalyn.ia · finalyn.web · JMM Studio. Suisse romande." />
 <meta name="twitter:image" content="https://finalyn.ch/assets/og-image.jpg" />
 
-<meta name="theme-color" content="#0EA5E9" />
+<meta name="theme-color" content="#0f172a" />
 
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/icon-512-light.png" />
@@ -110,7 +110,7 @@ a{color:inherit;text-decoration:none}
 .dd-btn{font-family:var(--font);font-size:.92rem;font-weight:600;color:var(--ink);background:rgba(255,255,255,.7);
   border:1px solid var(--line);padding:9px 16px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
   backdrop-filter:blur(6px);transition:border-color .2s,background .2s}
-.dd-btn:hover{border-color:var(--brand)}
+.dd-btn:hover{border-color:var(--ink)}
 .dd-btn svg{width:14px;height:14px;transition:transform .25s}
 .dropdown.open .dd-btn svg{transform:rotate(180deg)}
 .dd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:260px;background:#fff;border:1px solid var(--line);
@@ -122,7 +122,7 @@ a{color:inherit;text-decoration:none}
 .dd-menu a strong{font-size:.92rem;font-weight:600}
 .dd-menu a span{font-size:.78rem;color:var(--muted)}
 .top-contact{font-size:.92rem;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--ink);color:#fff;transition:background .2s,transform .2s}
-.top-contact:hover{background:var(--brand);transform:translateY(-1px)}
+.top-contact:hover{background:#334155;transform:translateY(-1px)}
 
 /* ---------- Hub (centre) ---------- */
 .hub{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg)}
@@ -133,7 +133,7 @@ a{color:inherit;text-decoration:none}
 
 .statement{font-family:var(--font-display);font-weight:700;font-size:clamp(2.1rem,4.8vw,3.5rem);line-height:1.08;
   letter-spacing:-.03em;margin:0}
-.statement .accent{color:var(--brand)}
+.statement .accent{color:var(--ink)}
 .hub__sub{margin:22px 0 0;font-size:clamp(1rem,1.6vw,1.18rem);color:var(--muted);font-weight:500}
 
 /* filiales (petit) */
@@ -155,6 +155,15 @@ a{color:inherit;text-decoration:none}
 .fil--live{animation:nudge 5s ease-in-out 2.5s infinite}
 .fil--live:hover{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){ .fil--live{animation:none} }
+
+/* contact bas de page */
+.foot-mail{position:fixed;bottom:26px;left:clamp(20px,5vw,48px);z-index:55;font-size:.9rem;color:var(--muted)}
+.foot-mail a{color:var(--ink);font-weight:600}
+.foot-mail a:hover{color:#000;text-decoration:underline}
+.wa{position:fixed;bottom:22px;right:22px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;
+  display:grid;place-items:center;box-shadow:0 16px 32px -10px rgba(37,211,102,.6);transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px;fill:#fff}
 
 @media(max-width:560px){
   .top{padding:16px 18px}
@@ -190,8 +199,8 @@ a{color:inherit;text-decoration:none}
   <img class="hub__img" src="assets/hero-finalyn.webp" alt="" fetchpriority="high" />
   <div class="hub__veil" aria-hidden="true"></div>
   <div class="hub__inner">
-    <h1 class="statement">On transforme vos idées<br>en <span class="accent">produits digitaux</span>.</h1>
-    <p class="hub__sub">Studio suisse d'innovation &amp; de commercialisation. Web, IA et jeux : choisissez votre pôle.</p>
+    <h1 class="statement">À chaque besoin,<br>son <span class="accent">expertise</span>.</h1>
+    <p class="hub__sub">Intelligence artificielle, web ou jeux : choisissez le pôle qui correspond à votre projet.</p>
 
     <div class="filiales">
       <a class="fil fil--live" href="ia/"><span class="fil__name">finalyn<span class="ia">.ia</span></span><small>Agence IA</small></a>
@@ -200,6 +209,11 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 </main>
+
+<a class="foot-mail" href="mailto:contact@finalyn.ch?subject=Contact%20Finalyn">contact@finalyn.ch</a>
+<a class="wa" href="https://wa.me/41796393684" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp" title="WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+</a>
 
 <script>
 (function(){
