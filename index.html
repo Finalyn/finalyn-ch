@@ -97,7 +97,7 @@
   --font-display:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg)}
+html,body{margin:0;background:var(--bg);overflow-x:hidden}
 body{font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
 a{color:inherit;text-decoration:none}
 
@@ -113,14 +113,15 @@ a{color:inherit;text-decoration:none}
 .dd-btn:hover{border-color:var(--ink)}
 .dd-btn svg{width:14px;height:14px;transition:transform .25s}
 .dropdown.open .dd-btn svg{transform:rotate(180deg)}
-.dd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:260px;background:#fff;border:1px solid var(--line);
-  border-radius:16px;box-shadow:0 30px 60px -30px rgba(15,23,42,.35);padding:8px;opacity:0;visibility:hidden;transform:translateY(-6px);
+.dd-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:330px;background:#fff;border:1px solid var(--line);
+  border-radius:18px;box-shadow:0 24px 54px -28px rgba(15,23,42,.22);padding:18px;opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .2s,transform .2s,visibility .2s}
 .dropdown.open .dd-menu,.dropdown:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
-.dd-menu a{display:flex;flex-direction:column;gap:1px;padding:10px 13px;border-radius:10px;transition:background .18s}
+.dd-head{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9aa3b2;padding:2px 14px 14px}
+.dd-menu a{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:12px;transition:background .18s}
 .dd-menu a:hover{background:var(--bg)}
-.dd-menu a strong{font-size:.92rem;font-weight:600}
-.dd-menu a span{font-size:.78rem;color:var(--muted)}
+.dd-menu a strong{font-size:1rem;font-weight:600;letter-spacing:-.01em}
+.dd-menu a span{font-size:.8rem;color:var(--muted)}
 .top-contact{font-size:.92rem;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--ink);color:#fff;transition:background .2s,transform .2s}
 .top-contact:hover{background:#334155;transform:translateY(-1px)}
 
@@ -191,10 +192,16 @@ a{color:inherit;text-decoration:none}
 .rcard a:hover{background:#334155}
 .rcard a svg{width:15px;height:15px}
 
+@media(max-width:640px){
+  .tuto{display:none}
+}
 @media(max-width:560px){
-  .top{padding:16px 18px}
-  .dd-menu{right:-8px;min-width:240px}
+  .top{padding:14px 16px}
+  .logo img{height:26px}
+  .dropdown{display:none}
+  .top-contact{padding:9px 16px;font-size:.88rem}
   .filiales{gap:20px;margin-top:42px}
+  .router{margin-top:44px}
 }
 </style>
 </head>
@@ -211,9 +218,10 @@ a{color:inherit;text-decoration:none}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
       <div class="dd-menu" role="menu">
-        <a href="ia/" role="menuitem"><strong>IA &amp; automatisation</strong><span>finalyn.ia — agents, n8n, conseil</span></a>
-        <a href="web/" role="menuitem"><strong>Sites web &amp; applications</strong><span>finalyn.web — vitrine, e-commerce, apps</span></a>
-        <a href="https://jmm.finalyn.ch" role="menuitem"><strong>Jeux &amp; expériences</strong><span>JMM Studio — jeux, gamification</span></a>
+        <div class="dd-head">Nos pôles</div>
+        <a href="ia/" role="menuitem"><strong>IA &amp; automatisation</strong><span>finalyn.ia · agents, n8n, conseil</span></a>
+        <a href="web/" role="menuitem"><strong>Sites web &amp; applications</strong><span>finalyn.web · vitrine, e-commerce, apps</span></a>
+        <a href="https://jmm.finalyn.ch" role="menuitem"><strong>Jeux &amp; expériences</strong><span>JMM Studio · jeux, gamification</span></a>
         <a href="mailto:contact@finalyn.ch?subject=Marketing%20%26%20branding" role="menuitem"><strong>Marketing &amp; branding</strong><span>SEO, contenu, identité de marque</span></a>
       </div>
     </div>
