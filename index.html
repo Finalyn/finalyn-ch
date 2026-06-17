@@ -117,18 +117,15 @@ a{color:inherit;text-decoration:none}
   border-radius:16px;box-shadow:0 28px 60px -32px rgba(15,23,42,.24);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .2s,transform .2s,visibility .2s}
 .dropdown.open .dd-menu{opacity:1;visibility:visible;transform:none}
-.dd-mega{min-width:566px;padding:32px 38px 34px;display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+.dd-mega{min-width:560px;padding:34px 40px 36px;display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
 .dd-col{display:flex;flex-direction:column}
-.dd-col-head{display:block;margin-bottom:18px}
-.dd-col-head strong{font-size:1.12rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
-.dd-col-head strong .ia{color:var(--ia)} .dd-col-head strong .web{color:var(--brand)}
-.dd-col-head .soon{font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8;margin-left:8px;vertical-align:2px}
-.dd-col-head .sub{display:block;margin-top:6px;font-size:.78rem;font-weight:500;color:#94a3b8}
-.dd-col-head:hover strong{opacity:.78}
-.dd-x{display:block;padding:8px 0;font-size:.95rem;font-weight:400;color:#334155;white-space:nowrap;transition:color .16s}
+.dd-col-head{display:block;margin-bottom:20px;font-size:1.16rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);transition:color .16s}
+.dd-col-head:hover{color:#000}
+.dd-col-head .soon{font-style:normal;font-size:.58rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#94a3b8;margin-left:9px;vertical-align:2px}
+.dd-x{display:block;padding:9px 0;font-size:.95rem;font-weight:400;color:#475569;white-space:nowrap;transition:color .16s}
 .dd-col--ia .dd-x:hover{color:var(--ia)}
 .dd-col--web .dd-x:hover{color:var(--brand)}
-@media(max-width:760px){.dd-mega{min-width:0;width:min(90vw,520px);grid-template-columns:1fr;gap:0}.dd-col+.dd-col{margin-top:24px}}
+@media(max-width:760px){.dd-mega{min-width:0;width:min(90vw,560px);grid-template-columns:1fr;gap:0}.dd-col+.dd-col{margin-top:26px}}
 
 /* ---------- Hub (centre) ---------- */
 .hub{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg)}
@@ -242,10 +239,7 @@ a{color:inherit;text-decoration:none}
       </button>
       <div class="dd-menu dd-mega" role="menu">
         <div class="dd-col dd-col--ia">
-          <a class="dd-col-head" href="ia/" role="menuitem">
-            <strong>finalyn<span class="ia">.ia</span></strong>
-            <span class="sub">IA &amp; automatisation</span>
-          </a>
+          <a class="dd-col-head" href="ia/" role="menuitem">Intelligence artificielle</a>
           <a class="dd-x" href="ia/" role="menuitem">Agents IA sur mesure</a>
           <a class="dd-x" href="ia/" role="menuitem">Automatisation des process</a>
           <a class="dd-x" href="ia/" role="menuitem">Intégrations &amp; connecteurs</a>
@@ -253,10 +247,7 @@ a{color:inherit;text-decoration:none}
           <a class="dd-x" href="ia/" role="menuitem">Audit &amp; conseil IA</a>
         </div>
         <div class="dd-col dd-col--web">
-          <a class="dd-col-head" href="web/" role="menuitem">
-            <strong>finalyn<span class="web">.web</span><em class="soon">Bientôt</em></strong>
-            <span class="sub">Sites web, digital &amp; marketing</span>
-          </a>
+          <a class="dd-col-head" href="web/" role="menuitem">Web<em class="soon">Bientôt</em></a>
           <a class="dd-x" href="web/" role="menuitem">Sites vitrines &amp; e-commerce</a>
           <a class="dd-x" href="web/" role="menuitem">Applications web</a>
           <a class="dd-x" href="web/" role="menuitem">SEO &amp; référencement</a>
