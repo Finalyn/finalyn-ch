@@ -113,15 +113,22 @@ a{color:inherit;text-decoration:none}
 .dd-btn:hover{border-color:var(--ink)}
 .dd-btn svg{width:14px;height:14px;transition:transform .25s}
 .dropdown.open .dd-btn svg{transform:rotate(180deg)}
-.dd-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:330px;background:#fff;border:1px solid var(--line);
-  border-radius:18px;box-shadow:0 24px 54px -28px rgba(15,23,42,.22);padding:18px;opacity:0;visibility:hidden;transform:translateY(-6px);
+.dd-menu{position:absolute;top:calc(100% + 12px);right:0;background:#fff;border:1px solid var(--line);
+  border-radius:20px;box-shadow:0 30px 64px -30px rgba(15,23,42,.28);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .2s,transform .2s,visibility .2s}
 .dropdown.open .dd-menu,.dropdown:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
-.dd-head{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9aa3b2;padding:2px 14px 14px}
-.dd-menu a{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:12px;transition:background .18s}
-.dd-menu a:hover{background:var(--bg)}
-.dd-menu a strong{font-size:1rem;font-weight:600;letter-spacing:-.01em}
-.dd-menu a span{font-size:.8rem;color:var(--muted)}
+.dd-mega{min-width:560px;padding:28px 30px;display:grid;grid-template-columns:1fr 1fr;gap:6px 44px}
+.dd-col{display:flex;flex-direction:column}
+.dd-col-head{display:block;padding-bottom:13px;margin-bottom:7px;border-bottom:1px solid var(--line)}
+.dd-col-head strong{display:block;font-size:1.18rem;font-weight:700;letter-spacing:-.025em;color:var(--ink)}
+.dd-col-head strong .ia{color:var(--ia)} .dd-col-head strong .web{color:var(--brand)}
+.dd-col-head .sub{display:inline-block;margin-top:5px;font-size:.78rem;color:var(--muted)}
+.dd-col-head .soon{font-style:normal;font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--brand);background:rgba(2,132,199,.1);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:1px}
+.dd-col-head:hover strong{opacity:.82}
+.dd-x{display:block;padding:7px 0;font-size:.93rem;font-weight:500;color:var(--muted);transition:color .18s,transform .18s}
+.dd-col--ia .dd-x:hover{color:var(--ia);transform:translateX(3px)}
+.dd-col--web .dd-x:hover{color:var(--brand);transform:translateX(3px)}
+@media(max-width:760px){.dd-mega{min-width:0;width:min(90vw,560px);grid-template-columns:1fr;gap:0}.dd-col+.dd-col{margin-top:16px}}
 .top-contact{font-size:.92rem;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--ink);color:#fff;transition:background .2s,transform .2s}
 .top-contact:hover{background:#334155;transform:translateY(-1px)}
 
@@ -228,18 +235,35 @@ a{color:inherit;text-decoration:none}
   <a class="logo" href="/" aria-label="Finalyn — accueil">
     <img src="assets/logo-finalyn.svg" alt="Finalyn" />
   </a>
-  <nav class="top-nav" aria-label="Services">
+  <nav class="top-nav" aria-label="Expertises">
     <div class="dropdown" id="dropdown">
       <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">
-        Services
+        Expertises
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
-      <div class="dd-menu" role="menu">
-        <div class="dd-head">Nos pôles</div>
-        <a href="ia/" role="menuitem"><strong>IA &amp; automatisation</strong><span>finalyn.ia · agents, n8n, conseil</span></a>
-        <a href="web/" role="menuitem"><strong>Sites web &amp; applications</strong><span>finalyn.web · vitrine, e-commerce, apps</span></a>
-        <a href="https://jmm.finalyn.ch" role="menuitem"><strong>Jeux &amp; expériences</strong><span>JMM Studio · jeux, gamification</span></a>
-        <a href="mailto:contact@finalyn.ch?subject=Marketing%20%26%20branding" role="menuitem"><strong>Marketing &amp; branding</strong><span>SEO, contenu, identité de marque</span></a>
+      <div class="dd-menu dd-mega" role="menu">
+        <div class="dd-col dd-col--ia">
+          <a class="dd-col-head" href="ia/" role="menuitem">
+            <strong>finalyn<span class="ia">.ia</span></strong>
+            <span class="sub">IA &amp; automatisation</span>
+          </a>
+          <a class="dd-x" href="ia/" role="menuitem">Agents IA sur mesure</a>
+          <a class="dd-x" href="ia/" role="menuitem">Automatisation des process</a>
+          <a class="dd-x" href="ia/" role="menuitem">Intégrations &amp; connecteurs</a>
+          <a class="dd-x" href="ia/" role="menuitem">Chatbots &amp; assistants</a>
+          <a class="dd-x" href="ia/" role="menuitem">Audit &amp; conseil IA</a>
+        </div>
+        <div class="dd-col dd-col--web">
+          <a class="dd-col-head" href="web/" role="menuitem">
+            <strong>finalyn<span class="web">.web</span></strong>
+            <span class="sub">Sites web &amp; marketing<em class="soon">Bientôt</em></span>
+          </a>
+          <a class="dd-x" href="web/" role="menuitem">Sites vitrines &amp; e-commerce</a>
+          <a class="dd-x" href="web/" role="menuitem">Applications web</a>
+          <a class="dd-x" href="web/" role="menuitem">SEO &amp; référencement</a>
+          <a class="dd-x" href="web/" role="menuitem">Branding &amp; identité</a>
+          <a class="dd-x" href="web/" role="menuitem">Marketing digital</a>
+        </div>
       </div>
     </div>
     <a class="top-contact" href="mailto:contact@finalyn.ch?subject=Contact%20Finalyn">Contact</a>
