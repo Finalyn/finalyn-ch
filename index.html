@@ -115,21 +115,25 @@ a{color:inherit;text-decoration:none}
 .dd-btn:hover::after,.dropdown.open .dd-btn::after{transform:scaleX(1)}
 .dd-btn svg{width:14px;height:14px;transition:transform .25s}
 .dropdown.open .dd-btn svg{transform:rotate(180deg)}
-.dd-menu{position:absolute;top:calc(100% + 12px);right:0;background:#fff;border:1px solid var(--line);
-  border-radius:16px;box-shadow:0 28px 60px -32px rgba(15,23,42,.24);opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity .2s,transform .2s,visibility .2s}
-.dropdown.open .dd-menu{opacity:1;visibility:visible;transform:none}
-.dd-mega{min-width:560px;padding:34px 40px 36px;display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+/* Panneau lateral droit (style menu finalyn.ia) */
+.dd-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.4);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;z-index:58}
+.dropdown.open .dd-backdrop{opacity:1;visibility:visible}
+.dd-menu{position:fixed;top:0;right:0;bottom:0;width:min(92vw,460px);background:#fff;border-left:1px solid var(--line);
+  box-shadow:-24px 0 70px -28px rgba(15,23,42,.35);z-index:60;transform:translateX(100%);
+  transition:transform .45s cubic-bezier(.22,.61,.36,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.dropdown.open .dd-menu{transform:translateX(0)}
+.dd-close{position:absolute;top:22px;right:24px;width:38px;height:38px;border:0;background:none;cursor:pointer;color:var(--muted);display:grid;place-items:center;border-radius:50%;transition:background .2s,color .2s}
+.dd-close:hover{background:var(--bg);color:var(--ink)}
+.dd-close svg{width:20px;height:20px}
+.dd-mega{display:flex;flex-direction:column;gap:38px;padding:88px 46px 46px}
 .dd-col{display:flex;flex-direction:column}
-.dd-col-head{display:block;margin-bottom:20px;font-size:1.16rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);transition:color .16s}
+.dd-col-head{display:block;margin-bottom:16px;font-size:1.3rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);transition:color .16s}
 .dd-col-head:hover{color:#000}
-.dd-col-head .soon{font-style:normal;font-size:.58rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#94a3b8;margin-left:9px;vertical-align:2px}
-.dd-col-head .dd-fil{display:block;margin-top:5px;font-size:.78rem;font-weight:400;font-style:italic;letter-spacing:0;color:#94a3b8}
+.dd-col-head .dd-fil{display:block;margin-top:5px;font-size:.82rem;font-weight:400;font-style:italic;letter-spacing:0;color:#94a3b8}
 .dd-col-head .dd-fil .ia{color:var(--ia)} .dd-col-head .dd-fil .web{color:var(--brand)}
-.dd-x{display:block;padding:9px 0;font-size:.95rem;font-weight:400;color:#475569;white-space:nowrap;transition:color .16s}
-.dd-col--ia .dd-x:hover{color:var(--ia)}
-.dd-col--web .dd-x:hover{color:var(--brand)}
-@media(max-width:760px){.dd-mega{min-width:0;width:min(90vw,560px);grid-template-columns:1fr;gap:0}.dd-col+.dd-col{margin-top:26px}}
+.dd-x{display:block;padding:10px 0;font-size:1rem;font-weight:400;color:#475569;transition:color .16s,transform .16s}
+.dd-col--ia .dd-x:hover{color:var(--ia);transform:translateX(3px)}
+.dd-col--web .dd-x:hover{color:var(--brand);transform:translateX(3px)}
 
 /* ---------- Hub (centre) ---------- */
 .hub{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg)}
@@ -241,7 +245,11 @@ a{color:inherit;text-decoration:none}
         Expertises
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
+      <div class="dd-backdrop" id="ddBackdrop" aria-hidden="true"></div>
       <div class="dd-menu dd-mega" role="menu">
+        <button class="dd-close" id="ddClose" type="button" aria-label="Fermer le menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
         <div class="dd-col dd-col--ia">
           <a class="dd-col-head" href="ia/" role="menuitem">Intelligence artificielle<span class="dd-fil">finalyn<span class="ia">.ia</span></span></a>
           <a class="dd-x" href="ia/" role="menuitem">Agents IA sur mesure</a>
@@ -305,12 +313,13 @@ a{color:inherit;text-decoration:none}
 (function(){
   "use strict";
   var dd=document.getElementById('dropdown'), ddBtn=document.getElementById('ddBtn');
-  ddBtn.addEventListener('click',function(e){
-    e.stopPropagation();
-    var open=dd.classList.toggle('open');
-    ddBtn.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.addEventListener('click',function(){ dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded','false'); });
+  var ddMenu=dd.querySelector('.dd-menu'), ddClose=document.getElementById('ddClose');
+  function ddSet(open){ dd.classList.toggle('open',open); ddBtn.setAttribute('aria-expanded',open?'true':'false'); }
+  ddBtn.addEventListener('click',function(e){ e.stopPropagation(); ddSet(!dd.classList.contains('open')); });
+  if(ddClose) ddClose.addEventListener('click',function(e){ e.stopPropagation(); ddSet(false); });
+  if(ddMenu) ddMenu.addEventListener('click',function(e){ e.stopPropagation(); }); /* clic dans le panneau : ne ferme pas (les liens naviguent) */
+  document.addEventListener('click',function(){ ddSet(false); }); /* clic sur le fond ou ailleurs : ferme */
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') ddSet(false); });
 
   /* Agent d'orientation du hub (Claude Haiku, via /api/route.php).
      Il comprend le besoin en langage libre, repond sur place et propose le bon
