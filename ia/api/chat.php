@@ -207,7 +207,7 @@ $system .= "\n\nLIENS ET CONTACT :\n"
     . "Ainsi 'lundi prochain' = le prochain lundi de la liste, 'demain' = la ligne marquee (demain). Verifie le nom du jour ET la date dans la liste, et quand tu confirmes, ecris-les tels qu'ils y figurent.\n"
     . "Quand le visiteur veut concretement prendre rendez-vous :\n"
     . "- sans date precise : termine ton message par une derniere ligne contenant uniquement [BOOK]\n"
-    . "- avec une date (et eventuellement une heure) : termine par [BOOK AAAA-MM-JJ] ou [BOOK AAAA-MM-JJ HH:MM] en recopiant l'ISO depuis la liste\n"
+    . "- avec une date : termine par [BOOK <jour> AAAA-MM-JJ HH:MM] en ecrivant d'ABORD le nom du jour (lundi, mardi, mercredi, jeudi, vendredi) PUIS la date ISO recopiee depuis la liste. Exemple : [BOOK mardi 2026-06-16 08:00]. Le nom du jour DOIT correspondre exactement a la date ISO de la meme ligne de la liste.\n"
     . "Ce marqueur ouvre le calendrier de reservation (pre-rempli si tu donnes la date). N'emets [BOOK] que lorsque le visiteur veut vraiment reserver, et toujours seul sur la derniere ligne. Tu ne connais pas les creneaux deja pris : si l'horaire n'est pas libre, le calendrier proposera automatiquement les autres horaires du jour.\n"
     . "Tu peux aussi, plutot que d'ouvrir le calendrier tout de suite, demander d'abord quel jour et quelle heure arrangeraient le visiteur, avec des [OPTIONS] (ex: Cette semaine | La semaine prochaine | Plutot le matin | Plutot l'apres-midi), puis emettre [BOOK AAAA-MM-JJ HH:MM] une fois la date connue.";
 

@@ -3357,6 +3357,7 @@
     /* Audit : texte à gauche + flèche vers le bas sur mobile */
     .audit-info { align-items: flex-start; text-align: left; }
     .audit-info .audit-desc { max-width: none; margin-left: 0; margin-right: 0; }
+    .audit-info .audit-note { align-self: flex-start; }
     .audit-info .audit-primary svg { transform: rotate(90deg); }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -5745,13 +5746,15 @@
 
   /* Very large screens (≥1900px), center everything as if on a laptop */
   @media (min-width: 1900px) {
+    /* la barre reste pleine largeur (le fond couvre tout l'ecran),
+       le contenu s'aligne sur la bande centrale de 1800px */
     .nav {
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
-      max-width: 1800px;
-      width: 100%;
-      padding: 1.75rem 3rem;
+      left: 0;
+      right: 0;
+      transform: none;
+      max-width: none;
+      width: auto;
+      padding: 1.75rem max(3rem, calc((100% - 1800px) / 2 + 3rem));
     }
     .hero {
       max-width: 1800px;
@@ -5760,9 +5763,12 @@
     }
   }
 
-  /* Ultra-wide (≥2600px), slightly wider container, still capped */
+  /* Ultra-wide (≥2600px), conteneur un peu plus large */
   @media (min-width: 2600px) {
-    .nav, .hero {
+    .nav {
+      padding: 1.75rem max(3rem, calc((100% - 2000px) / 2 + 3rem));
+    }
+    .hero {
       max-width: 2000px;
     }
   }
@@ -8875,7 +8881,26 @@
     var dm = info.match(/(\d{4}-\d{2}-\d{2})/);
     var tm = info.match(/(\d{1,2}:\d{2})/);
     var clean = text.replace(/\n?\s*\[BOOK\b[^\]]*\]/i, '').trim();
-    return { text: clean, book: { date: dm ? dm[1] : '', time: tm ? tm[1] : '' } };
+    var date = dm ? dm[1] : '';
+    // Filet de securite : si l'agent a nomme le jour, on recale la date sur ce jour
+    // (l'agent se trompe parfois d'un jour ; le nom du jour vient du visiteur, plus fiable).
+    var DOW = { dimanche: 0, lundi: 1, mardi: 2, mercredi: 3, jeudi: 4, vendredi: 5, samedi: 6 };
+    var dn = info.toLowerCase().match(/dimanche|lundi|mardi|mercredi|jeudi|vendredi|samedi/);
+    if (date && dn) {
+      var target = DOW[dn[0]];
+      var p = date.split('-');
+      var d0 = new Date(parseInt(p[0], 10), parseInt(p[1], 10) - 1, parseInt(p[2], 10));
+      if (!isNaN(d0.getTime()) && d0.getDay() !== target) {
+        for (var off = 1; off <= 3; off++) {
+          var dPlus = new Date(d0); dPlus.setDate(d0.getDate() + off);
+          if (dPlus.getDay() === target) { d0 = dPlus; break; }
+          var dMinus = new Date(d0); dMinus.setDate(d0.getDate() - off);
+          if (dMinus.getDay() === target) { d0 = dMinus; break; }
+        }
+        date = d0.getFullYear() + '-' + ('0' + (d0.getMonth() + 1)).slice(-2) + '-' + ('0' + d0.getDate()).slice(-2);
+      }
+    }
+    return { text: clean, book: { date: date, time: tm ? tm[1] : '' } };
   }
   // Rendez-vous deja pris par ce visiteur (memorise apres reservation), transmis aux agents
   function finalynGetBooking() {
