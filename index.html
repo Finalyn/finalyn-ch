@@ -114,21 +114,21 @@ a{color:inherit;text-decoration:none}
 .dd-btn svg{width:14px;height:14px;transition:transform .25s}
 .dropdown.open .dd-btn svg{transform:rotate(180deg)}
 .dd-menu{position:absolute;top:calc(100% + 12px);right:0;background:#fff;border:1px solid var(--line);
-  border-radius:20px;box-shadow:0 30px 64px -30px rgba(15,23,42,.28);opacity:0;visibility:hidden;transform:translateY(-6px);
+  border-radius:16px;box-shadow:0 28px 60px -32px rgba(15,23,42,.24);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .2s,transform .2s,visibility .2s}
 .dropdown.open .dd-menu,.dropdown:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
-.dd-mega{min-width:560px;padding:28px 30px;display:grid;grid-template-columns:1fr 1fr;gap:6px 44px}
+.dd-mega{min-width:566px;padding:32px 38px 34px;display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
 .dd-col{display:flex;flex-direction:column}
-.dd-col-head{display:block;padding-bottom:13px;margin-bottom:7px;border-bottom:1px solid var(--line)}
-.dd-col-head strong{display:block;font-size:1.18rem;font-weight:700;letter-spacing:-.025em;color:var(--ink)}
+.dd-col-head{display:block;margin-bottom:18px}
+.dd-col-head strong{font-size:1.12rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
 .dd-col-head strong .ia{color:var(--ia)} .dd-col-head strong .web{color:var(--brand)}
-.dd-col-head .sub{display:inline-block;margin-top:5px;font-size:.78rem;color:var(--muted)}
-.dd-col-head .soon{font-style:normal;font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--brand);background:rgba(2,132,199,.1);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:1px}
-.dd-col-head:hover strong{opacity:.82}
-.dd-x{display:block;padding:7px 0;font-size:.93rem;font-weight:500;color:var(--muted);transition:color .18s,transform .18s}
-.dd-col--ia .dd-x:hover{color:var(--ia);transform:translateX(3px)}
-.dd-col--web .dd-x:hover{color:var(--brand);transform:translateX(3px)}
-@media(max-width:760px){.dd-mega{min-width:0;width:min(90vw,560px);grid-template-columns:1fr;gap:0}.dd-col+.dd-col{margin-top:16px}}
+.dd-col-head .soon{font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8;margin-left:8px;vertical-align:2px}
+.dd-col-head .sub{display:block;margin-top:6px;font-size:.78rem;font-weight:500;color:#94a3b8}
+.dd-col-head:hover strong{opacity:.78}
+.dd-x{display:block;padding:8px 0;font-size:.95rem;font-weight:400;color:#334155;white-space:nowrap;transition:color .16s}
+.dd-col--ia .dd-x:hover{color:var(--ia)}
+.dd-col--web .dd-x:hover{color:var(--brand)}
+@media(max-width:760px){.dd-mega{min-width:0;width:min(90vw,520px);grid-template-columns:1fr;gap:0}.dd-col+.dd-col{margin-top:24px}}
 .top-contact{font-size:.92rem;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--ink);color:#fff;transition:background .2s,transform .2s}
 .top-contact:hover{background:#334155;transform:translateY(-1px)}
 
@@ -255,8 +255,8 @@ a{color:inherit;text-decoration:none}
         </div>
         <div class="dd-col dd-col--web">
           <a class="dd-col-head" href="web/" role="menuitem">
-            <strong>finalyn<span class="web">.web</span></strong>
-            <span class="sub">Sites web &amp; marketing<em class="soon">Bientôt</em></span>
+            <strong>finalyn<span class="web">.web</span><em class="soon">Bientôt</em></strong>
+            <span class="sub">Sites web, digital &amp; marketing</span>
           </a>
           <a class="dd-x" href="web/" role="menuitem">Sites vitrines &amp; e-commerce</a>
           <a class="dd-x" href="web/" role="menuitem">Applications web</a>
