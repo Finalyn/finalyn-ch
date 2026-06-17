@@ -102,13 +102,13 @@ body{font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased
 a{color:inherit;text-decoration:none}
 
 /* ---------- Header ---------- */
-.top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+.top{position:fixed;top:0;left:0;right:0;z-index:62;display:flex;align-items:center;justify-content:space-between;
   padding:20px clamp(20px,5vw,48px)}
 .logo img{height:30px;width:auto;display:block}
 .top-nav{display:flex;align-items:center;gap:8px}
 .dropdown{position:relative}
 .dd-btn{font-family:var(--font);font-size:1rem;font-weight:500;color:var(--ink);background:none;border:0;padding:6px 2px;
-  cursor:pointer;display:inline-flex;align-items:center;gap:10px;letter-spacing:-.005em;transition:color .2s}
+  cursor:pointer;display:inline-flex;align-items:center;gap:10px;letter-spacing:-.005em;transition:color .2s;position:relative;z-index:61}
 .dd-btn:hover{color:#000}
 .dd-bars{display:inline-flex;flex-direction:column;gap:4px;width:20px}
 .dd-bars span{display:block;height:2px;width:20px;background:currentColor;border-radius:2px;transition:transform .3s ease,opacity .3s ease}
@@ -122,10 +122,7 @@ a{color:inherit;text-decoration:none}
   box-shadow:-24px 0 70px -28px rgba(15,23,42,.35);z-index:60;transform:translateX(100%);
   transition:transform .45s cubic-bezier(.22,.61,.36,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .dropdown.open .dd-menu{transform:translateX(0)}
-.dd-close{position:absolute;top:22px;right:24px;width:38px;height:38px;border:0;background:none;cursor:pointer;color:var(--muted);display:grid;place-items:center;border-radius:50%;transition:background .2s,color .2s}
-.dd-close:hover{background:var(--bg);color:var(--ink)}
-.dd-close svg{width:20px;height:20px}
-.dd-mega{display:flex;flex-direction:column;gap:38px;padding:88px 46px 46px}
+.dd-mega{display:flex;flex-direction:column;gap:38px;padding:96px 46px 46px}
 .dd-col{display:flex;flex-direction:column}
 .dd-col-head{display:block;margin-bottom:16px;font-size:1.3rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);transition:color .16s}
 .dd-col-head:hover{color:#000}
@@ -218,9 +215,8 @@ a{color:inherit;text-decoration:none}
 
 @media(max-width:640px){
   .filiales{column-gap:18px;row-gap:80px}
-  .fil--live{animation:bob 1.9s ease-in-out infinite}
-  .tuto{position:absolute;left:2px;top:calc(100% + 4px);bottom:auto;transform:none;align-items:flex-start;z-index:45}
-  .tuto svg{width:28px;height:25px;transform:rotate(10deg)}
+  .tuto{position:absolute;left:-42px;top:calc(100% + 4px);bottom:auto;transform:none;align-items:flex-start;z-index:45}
+  .tuto svg{width:28px;height:25px;transform:rotate(14deg)}
   .tuto b{font-size:1.3rem}
   .tuto em{font-size:1rem}
 }
@@ -246,9 +242,6 @@ a{color:inherit;text-decoration:none}
       </button>
       <div class="dd-backdrop" id="ddBackdrop" aria-hidden="true"></div>
       <div class="dd-menu dd-mega" role="menu">
-        <button class="dd-close" id="ddClose" type="button" aria-label="Fermer le menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
         <div class="dd-col dd-col--ia">
           <a class="dd-col-head" href="ia/" role="menuitem">Intelligence artificielle<span class="dd-fil">finalyn<span class="ia">.ia</span></span></a>
           <a class="dd-x" href="ia/" role="menuitem">Agents IA sur mesure</a>
@@ -259,7 +252,7 @@ a{color:inherit;text-decoration:none}
         </div>
         <div class="dd-col dd-col--web">
           <a class="dd-col-head" href="web/" role="menuitem">Web<span class="dd-fil">finalyn<span class="web">.web</span></span></a>
-          <a class="dd-x" href="web/" role="menuitem">Sites vitrines &amp; e-commerce</a>
+          <a class="dd-x" href="web/" role="menuitem">Sites web &amp; e-commerce</a>
           <a class="dd-x" href="web/" role="menuitem">Applications web</a>
           <a class="dd-x" href="web/" role="menuitem">SEO &amp; référencement</a>
           <a class="dd-x" href="web/" role="menuitem">Branding &amp; identité</a>
@@ -312,10 +305,9 @@ a{color:inherit;text-decoration:none}
 (function(){
   "use strict";
   var dd=document.getElementById('dropdown'), ddBtn=document.getElementById('ddBtn');
-  var ddMenu=dd.querySelector('.dd-menu'), ddClose=document.getElementById('ddClose');
+  var ddMenu=dd.querySelector('.dd-menu');
   function ddSet(open){ dd.classList.toggle('open',open); ddBtn.setAttribute('aria-expanded',open?'true':'false'); }
   ddBtn.addEventListener('click',function(e){ e.stopPropagation(); ddSet(!dd.classList.contains('open')); });
-  if(ddClose) ddClose.addEventListener('click',function(e){ e.stopPropagation(); ddSet(false); });
   if(ddMenu) ddMenu.addEventListener('click',function(e){ e.stopPropagation(); }); /* clic dans le panneau : ne ferme pas (les liens naviguent) */
   document.addEventListener('click',function(){ ddSet(false); }); /* clic sur le fond ou ailleurs : ferme */
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') ddSet(false); });
