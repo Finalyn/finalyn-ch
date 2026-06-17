@@ -215,6 +215,8 @@ a{color:inherit;text-decoration:none}
 
 @media(max-width:640px){
   /* hero plein ecran centre, footer en dessous (scroll), fond fixe visible */
+  /* header non fixe : reste en haut de la page et defile (disparait) au scroll */
+  .top{position:absolute}
   .hub{min-height:100svh;background:transparent;flex-direction:column;align-items:center;justify-content:center}
   .hub__img{position:fixed;z-index:0}
   .hub__veil{position:fixed;z-index:1}
