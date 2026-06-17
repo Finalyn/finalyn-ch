@@ -109,9 +109,9 @@ a{color:inherit;text-decoration:none}
 .dropdown{position:relative}
 .dd-btn{font-family:var(--font);font-size:1rem;font-weight:500;color:var(--ink);background:none;border:0;padding:6px 2px;
   cursor:pointer;display:inline-flex;align-items:center;gap:6px;position:relative;letter-spacing:-.005em;transition:color .25s}
-.dd-btn::after{content:"";position:absolute;left:2px;right:2px;bottom:0;height:1.5px;background:var(--ia);
+.dd-btn::after{content:"";position:absolute;left:2px;right:2px;bottom:0;height:1.5px;background:var(--ink);
   transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.22,.61,.36,1)}
-.dd-btn:hover,.dropdown.open .dd-btn{color:var(--ia)}
+.dd-btn:hover,.dropdown.open .dd-btn{color:var(--ink)}
 .dd-btn:hover::after,.dropdown.open .dd-btn::after{transform:scaleX(1)}
 .dd-btn svg{width:14px;height:14px;transition:transform .25s}
 .dropdown.open .dd-btn svg{transform:rotate(180deg)}
