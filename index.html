@@ -215,10 +215,10 @@ a{color:inherit;text-decoration:none}
 
 @media(max-width:640px){
   /* hero plein ecran centre, footer en dessous (scroll), fond fixe visible */
-  .hub{min-height:100svh;background:transparent;align-items:center}
+  .hub{min-height:100svh;background:transparent;flex-direction:column;align-items:center;justify-content:center}
   .hub__img{position:fixed;z-index:0}
   .hub__veil{position:fixed;z-index:1}
-  .hub__inner{padding-top:44px;padding-bottom:44px}
+  .hub__inner{padding-top:44px;padding-bottom:44px;margin:auto 0}
   .filiales{column-gap:18px;row-gap:40px}
   .tuto{left:-16px;top:calc(100% + 2px);bottom:auto;transform:none;align-items:flex-start;z-index:45}
   .tuto svg{width:24px;height:31px;transform:rotate(42deg)}
@@ -232,7 +232,7 @@ a{color:inherit;text-decoration:none}
 @media(max-width:560px){
   .top{padding:14px 16px}
   .logo img{height:26px}
-  .statement{font-size:1.8rem;line-height:1.18}
+  .statement{font-size:clamp(1.05rem,5.2vw,1.65rem);white-space:nowrap;line-height:1.2}
   .hub-sub{font-size:.92rem;margin-top:12px;max-width:32ch}
   .router{margin-top:28px}
   .rform{padding:5px 5px 5px 16px}
