@@ -2433,7 +2433,7 @@
     padding: 24% 14% 12% 14%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.35rem;
   }
   .piece-eyebrow {
@@ -2471,6 +2471,9 @@
     color: var(--ink-soft);
     letter-spacing: -0.02em;
   }
+  /* Stat avec une plage (ex: 60-70) : reste sur une ligne */
+  .piece-stat--range { white-space: nowrap; }
+  .piece-stat--range .stat-val { font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
   .piece-context {
     font-size: clamp(0.74rem, 1.05vw, 0.85rem);
     line-height: 1.4;
@@ -7497,7 +7500,7 @@
         <div class="piece-content">
           <span class="piece-eyebrow">Productivité</span>
           <div class="piece-stat"><span class="stat-pre">+</span><span class="stat-val">25</span><span class="stat-suf">&nbsp;%</span></div>
-          <p class="piece-context">de rapidité sur les tâches intellectuelles assistées par l'IA</p>
+          <p class="piece-context">de rapidité sur les tâches intellectuelles avec l'IA</p>
         </div>
       </div>
 
@@ -7507,8 +7510,8 @@
         </svg>
         <div class="piece-content">
           <span class="piece-eyebrow">Temps automatisable</span>
-          <div class="piece-stat"><span class="stat-val">60-70</span><span class="stat-suf">&nbsp;%</span></div>
-          <p class="piece-context">du temps de travail correspond à des activités automatisables par l'IA</p>
+          <div class="piece-stat piece-stat--range"><span class="stat-val">60-70</span><span class="stat-suf">&nbsp;%</span></div>
+          <p class="piece-context">du temps de travail est automatisable par l'IA</p>
         </div>
       </div>
 
